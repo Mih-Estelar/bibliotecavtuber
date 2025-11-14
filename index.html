@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>A Biblioteca VTuber Ajuda</title>
+  <meta name="viewport" content="width=410, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      background: #F7F1E7;
+      color: #2c2033;
+      font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    }
+    /* Tela carregamento */
+    #loading-screen {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background-color: #ff2399;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      color: #fff;
+    }
+    #loading-screen .mascote {
+      width: 140px; margin-bottom: 32px;
+      border-radius: 50%;
+      box-shadow: 0 0 26px #fff8d8;
+    }
+    #loading-screen .loader {
+      border: 8px solid rgba(255,255,255,.15);
+      border-top: 8px solid #fff;
+      border-radius: 50%;
+      width: 80px; height: 80px;
+      animation: spin 1.2s linear infinite;
+      margin-bottom: 14px;
+    }
+    @keyframes spin { from { transform: rotate(0deg);} to {transform: rotate(360deg);} }
+    #loading-screen .texto {
+      font-size: 1.3em;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 5px #bc1b70;
+      font-family: 'Montserrat', Arial, sans-serif;
+      margin-top: 12px;
+      text-align: center;
+    }
+    /* Navegação topo */
+    .topnav {
+      width: 100%;
+      background: #fff;
+      box-shadow: 0 4px 0 #2c2033;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 50;
+    }
+    .tab-btn {
+      flex: 1 1 0;
+      background: none;
+      border: none;
+      padding: 18px 0;
+      font-size: 1.2em;
+      font-weight: 900;
+      color: #2c2033;
+      cursor: pointer;
+      letter-spacing: 1.5px;
+      outline: none;
+      transition: background 0.25s, color 0.2s;
+      border-bottom: 5px solid transparent;
+    }
+    .tab-btn.active {
+      color: #ff2399;
+      border-bottom: 5px solid #ff2399;
+      background: #f7f1e7;
+    }
+    /* Card retrô/anime */
+    .main-card {
+      background: #2c2033;
+      border: 6px solid #ff2399;
+      border-radius: 22px;
+      margin: 25px auto 35px auto;
+      color: #fff;
+      padding: 28px 20px 20px 20px;
+      box-shadow: 0 8px 0 #7955ce;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 390px;
+    }
+    .main-card .avatar-hero {
+      width: 180px; height: 180px;
+      border-radius: 18px;
+      border: 6px solid #fff;
+      background: #fff;
+      object-fit: cover;
+      margin-bottom: 16px;
+      box-shadow: 2px 6px 0 #ff2399;
+    }
+    .main-card .nome-vtuber {
+      font-size: 2em;
+      font-weight: 900;
+      letter-spacing: 1px;
+      background: #ff2399;
+      color: #fff;
+      padding: 5px 20px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      box-shadow: 2px 4px 0 #7955ce;
+    }
+    .main-card .mensagem {
+      background: #fff;
+      color: #2c2033;
+      font-size: 1.1em;
+      font-family: 'Montserrat', Arial, sans-serif;
+      margin: 0 auto 14px auto;
+      padding: 17px 12px 15px 12px;
+      border-radius: 10px;
+      box-shadow: 0 3px 0 #ff2399;
+      font-weight: 500;
+      max-width: 300px;
+      text-align: center;
+    }
+    .main-card .redes-sociais {
+      text-align: center;
+      margin-top: 4px;
+      margin-bottom: 2px;
+    }
+    .main-card .link-btn {
+      display: inline-block;
+      background: #7955ce;
+      color: #fff;
+      font-weight: 700;
+      padding: 10px 22px;
+      border-radius: 30px;
+      margin: 0 8px 8px 0;
+      font-size: 1em;
+      text-decoration: none;
+      box-shadow: 1px 2px 0 #ff2399;
+      border: none;
+      transition: background .2s;
+    }
+    .main-card .link-btn:hover {
+      background: #ff2399;
+      color: #fff;
+    }
+    .badge {
+      position: absolute; 
+      font-weight: 900; 
+      background: #fff;
+      padding: 4px 13px;
+      color: #ff2399;
+      font-size: 1em;
+      border-radius: 10px;
+      left: 50%; top: 16px;
+      transform: translateX(-50%);
+      letter-spacing: 1.5px;
+      box-shadow: 1px 2px 0 #7955ce;
+    }
+    /* Abas conteúdo VTubers */
+    .tab-content {
+      display: none;
+      max-width: 950px;
+      margin: 25px auto 40px auto;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .tab-content.active { display: flex; }
+    .vtuber-card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px #2c2033;
+      width: 220px;
+      padding: 15px;
+      border: 3px solid #7955ce;
+      transition: border-color 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .vtuber-card .vtuber-avatar {
+      width: 110px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      object-fit: cover;
+      border: 3px solid #ff2399;
+    }
+    .vtuber-name {
+      font-size: 1.18em;
+      font-weight: 900;
+      color: #ff2399;
+      margin-bottom: 5px;
+    }
+    .founder-label {
+      color: #7955ce;
+      font-weight: bold;
+      margin-left: 4px;
+      font-size: 1em;
+    }
+    .vtuber-description {
+      font-size: 0.99em;
+      color: #2c2033;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+    .social-links a {
+      margin: 0 5px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #7955ce;
+      background: #ff2399;
+      border-radius: 8px;
+      padding: 5px 14px;
+      font-size: 0.95em;
+      transition: color 0.3s, background 0.3s;
+    }
+    .social-links a:hover {
+      background: #7955ce;
+      color: #fff;
+    }
+    @media (max-width: 470px) {
+      html { font-size: 14px; }
+      .main-card {padding: 12px;}
+      .main-card .avatar-hero {width: 130px;height: 130px;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Tela de carregamento -->
+  <div id="loading-screen">
+    <img src="1000417115.png" alt="Mascote carregando" class="mascote" />
+    <div class="loader"></div>
+    <div class="texto">Carregando Biblioteca VTuber...</div>
+  </div>
+
+  <!-- Navegação topo -->
+  <nav class="topnav" id="topnav">
+    <button class="tab-btn active" onclick="openTab('inicio')">Início</button>
+    <button class="tab-btn" onclick="openTab('TikTok')">TikTok</button>
+    <button class="tab-btn" onclick="openTab('YouTube')">YouTube</button>
+    <button class="tab-btn" onclick="openTab('Twitch')">Twitch</button>
+  </nav>
+
+  <!-- Aba Início: Card fundador -->
+  <div id="inicio" class="tab-content active">
+    <div class="main-card">
+      <div class="badge">⭐ VTUBER CRIADOR</div>
+      <img src="1000104782.jpeg" alt="Oriel Estelar" class="avatar-hero" />
+      <div class="nome-vtuber">Oriel Estelar</div>
+      <div class="mensagem">
+        Criei essa biblioteca para divulgar VTubers 3D, 2D e PNG porque sei o quão difícil é ser conhecido na internet.
+      </div>
+      <div class="redes-sociais">
+        <a class="link-btn" href="https://www.tiktok.com/@mih_estelar" target="_blank" rel="noopener noreferrer">TikTok</a>
+        <a class="link-btn" href="https://www.youtube.com/@mih_estelar" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a class="link-btn" href="https://www.twitch.tv/mih_estelar" target="_blank" rel="noopener noreferrer">Twitch</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Abas TikTok, YouTube, Twitch -->
+  <div id="TikTok" class="tab-content"></div>
+  <div id="YouTube" class="tab-content"></div>
+  <div id="Twitch" class="tab-content"></div>
+
+  <script>
+    const vTubers = [
+      {
+        id: 1,
+        name: 'Aster',
+        founder: false,
+        description: 'Criador de conteúdo (PNG VTuber)',
+        tiktok: 'https://www.tiktok.com/@aster8628?_r=1&_t=ZS-91OzuqVmlBo',
+        youtube: 'https://www.youtube.com/@Mundo_de_Aster',
+        twitch: '',
+        avatar: '1000104801.jpeg'
+      },
+      {
+        id: 2,
+        name: 'mih_estelar',
+        founder: true,
+        description: 'Fundador e VTuber principal',
+        tiktok: 'https://www.tiktok.com/@mih_estelar',
+        youtube: 'https://www.youtube.com/@mih_estelar',
+        twitch: 'https://www.twitch.tv/mih_estelar',
+        avatar: '1000104782.jpeg',
+      }
+    ];
+
+    function createVTuberCard(vtuber, plataforma) {
+      const card = document.createElement('div');
+      card.className = 'vtuber-card';
+      if(vtuber.founder) card.classList.add('founder');
+      let btns = '';
+      if(plataforma === 'inicio') {
+        btns += vtuber.tiktok ? `<a href="${vtuber.tiktok}" target="_blank" rel="noopener noreferrer">TikTok</a>` : '';
+        btns += vtuber.youtube ? `<a href="${vtuber.youtube}" target="_blank" rel="noopener noreferrer">YouTube</a>` : '';
+        btns += vtuber.twitch ? `<a href="${vtuber.twitch}" target="_blank" rel="noopener noreferrer">Twitch</a>` : '';
+      } else {
+        if(plataforma === 'tiktok' && vtuber.tiktok) {
+          btns = `<a href="${vtuber.tiktok}" target="_blank" rel="noopener noreferrer">TikTok</a>`;
+        } else if(plataforma === 'youtube' && vtuber.youtube) {
+          btns = `<a href="${vtuber.youtube}" target="_blank" rel="noopener noreferrer">YouTube</a>`;
+        } else if(plataforma === 'twitch' && vtuber.twitch) {
+          btns = `<a href="${vtuber.twitch}" target="_blank" rel="noopener noreferrer">Twitch</a>`;
+        }
+      }
+      card.innerHTML = `
+        <img src="${vtuber.avatar}" alt="${vtuber.name}" class="vtuber-avatar" />
+        <div class="vtuber-name">${vtuber.name}${vtuber.founder ? '<span class="founder-label">⭐ Fundador</span>' : ''}</div>
+        <div class="vtuber-description">${vtuber.description}</div>
+        <div class="social-links">
+          ${btns}
+        </div>
+      `;
+      return card;
+    }
+
+    function openTab(tabName) {
+      ['inicio', 'TikTok', 'YouTube', 'Twitch'].forEach(t => {
+        document.getElementById(t).classList.remove('active');
+      });
+      document.getElementById(tabName).classList.add('active');
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent === tabName || (tabName === 'inicio' && btn.textContent === 'Início'));
+      });
+      if(tabName !== 'inicio') {
+        const tabContent = document.getElementById(tabName);
+        tabContent.innerHTML = '';
+        const filtered = vTubers.filter(v => v[tabName.toLowerCase()]);
+        filtered.forEach(vtuber => {
+          tabContent.appendChild(createVTuberCard(vtuber, tabName.toLowerCase()));
+        });
+      }
+    }
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('loading-screen').style.display = 'none';
+      }, 2400);
+    });
+  </script>
+
+</body>
+</html>
