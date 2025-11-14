@@ -48,7 +48,6 @@
       margin-top: 12px;
       text-align: center;
     }
-    /* Navegação topo */
     .topnav {
       width: 100%;
       background: #fff;
@@ -77,7 +76,6 @@
       border-bottom: 5px solid #ff2399;
       background: #f7f1e7;
     }
-    /* Card retrô/anime */
     .main-card {
       background: #2c2033;
       border: 6px solid #ff2399;
@@ -164,7 +162,6 @@
       letter-spacing: 1.5px;
       box-shadow: 1px 2px 0 #7955ce;
     }
-    /* Abas conteúdo VTubers */
     .tab-content {
       display: none;
       max-width: 950px;
@@ -229,7 +226,6 @@
       background: #7955ce;
       color: #fff;
     }
-    /* Responsividade */
     @media (max-width: 768px) {
       .main-card {
         max-width: 90vw;
@@ -336,7 +332,39 @@
         youtube: 'https://youtube.com/@kiyomisuzuri?si=nRqYfEM0mO4VB2D_',
         twitch: '',
         avatar: 'Kiyomi Suzuri.jpeg'
-      }
+      },
+      {
+        id: 4,
+        name: 'Fumi',
+        founder: false,
+        description: 'VTuber',
+        tiktok: '',
+        youtube: 'https://www.youtube.com/channel/UClJDPLqgC_hcWexhemRtGFQ',
+        twitch: 'https://www.twitch.tv/fumi_vtuber',
+        avatar: 'fumi.jpeg'
+      },
+
+      {
+  id: 5,
+  name: 'Hanakokaede',
+  founder: false,
+  description: 'VTuber',
+  tiktok: 'https://www.tiktok.com/@hanakokaede?is_from_webapp=1&sender_device=pc',
+  youtube: 'https://www.youtube.com/@hanakokaede',
+  twitch: 'https://www.twitch.tv/hanakokaede',
+  avatar: 'hanakokaede.jpeg' // coloque nome do arquivo da foto que você recebeu
+      },
+      {
+  id: 6,
+  name: 'Sakomo Hideki',
+  founder: false,
+  description: 'VTuber',
+  tiktok: 'https://www.tiktok.com/@sakomo.hideki',
+  youtube: 'https://www.youtube.com/@Sakomo_Hideki',
+  twitch: 'https://m.twitch.tv/hideki_sakomo/clips',
+  avatar: 'sakomo_hideki.jpeg' // coloque o nome do arquivo da imagem que recebeu
+}
+
     ];
 
     function createVTuberCard(vtuber, plataforma) {
@@ -367,7 +395,6 @@
       `;
       return card;
     }
-
 
     function openTab(tabName) {
       ['inicio', 'TikTok', 'YouTube', 'Twitch'].forEach(t => {
