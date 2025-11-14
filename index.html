@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>A Biblioteca VTuber Ajuda</title>
-  <meta name="viewport" content="width=410, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
       margin: 0;
@@ -14,7 +14,8 @@
     /* Tela carregamento */
     #loading-screen {
       position: fixed;
-      top: 0; left: 0; width: 100vw; height: 100vh;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
       background-color: #ff2399;
       display: flex;
       flex-direction: column;
@@ -24,7 +25,8 @@
       color: #fff;
     }
     #loading-screen .mascote {
-      width: 140px; margin-bottom: 32px;
+      width: 140px;
+      margin-bottom: 32px;
       border-radius: 50%;
       box-shadow: 0 0 26px #fff8d8;
     }
@@ -32,7 +34,8 @@
       border: 8px solid rgba(255,255,255,.15);
       border-top: 8px solid #fff;
       border-radius: 50%;
-      width: 80px; height: 80px;
+      width: 80px;
+      height: 80px;
       animation: spin 1.2s linear infinite;
       margin-bottom: 14px;
     }
@@ -91,7 +94,8 @@
       max-width: 390px;
     }
     .main-card .avatar-hero {
-      width: 180px; height: 180px;
+      width: 180px;
+      height: 180px;
       border-radius: 18px;
       border: 6px solid #fff;
       background: #fff;
@@ -109,6 +113,7 @@
       border-radius: 8px;
       margin-bottom: 12px;
       box-shadow: 2px 4px 0 #7955ce;
+      text-align: center;
     }
     .main-card .mensagem {
       background: #fff;
@@ -140,21 +145,22 @@
       text-decoration: none;
       box-shadow: 1px 2px 0 #ff2399;
       border: none;
-      transition: background .2s;
+      transition: background 0.2s;
     }
     .main-card .link-btn:hover {
       background: #ff2399;
       color: #fff;
     }
     .badge {
-      position: absolute; 
-      font-weight: 900; 
+      position: absolute;
+      font-weight: 900;
       background: #fff;
       padding: 4px 13px;
       color: #ff2399;
       font-size: 1em;
       border-radius: 10px;
-      left: 50%; top: 16px;
+      left: 50%;
+      top: 16px;
       transform: translateX(-50%);
       letter-spacing: 1.5px;
       box-shadow: 1px 2px 0 #7955ce;
@@ -168,7 +174,9 @@
       flex-wrap: wrap;
       gap: 20px;
     }
-    .tab-content.active { display: flex; }
+    .tab-content.active {
+      display: flex;
+    }
     .vtuber-card {
       background-color: #fff;
       border-radius: 8px;
@@ -222,10 +230,41 @@
       background: #7955ce;
       color: #fff;
     }
-    @media (max-width: 470px) {
-      html { font-size: 14px; }
-      .main-card {padding: 12px;}
-      .main-card .avatar-hero {width: 130px;height: 130px;}
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .main-card {
+        max-width: 90vw;
+        padding: 18px 15px 15px 15px;
+      }
+      .avatar-hero {
+        width: 130px;
+        height: 130px;
+      }
+      .tab-btn {
+        font-size: 1em;
+        padding: 14px 0;
+      }
+      .nome-vtuber {
+        font-size: 1.5em;
+        padding: 5px 15px;
+      }
+    }
+    @media (max-width: 480px) {
+      .main-card {
+        padding: 12px 10px 10px 10px;
+      }
+      .nome-vtuber {
+        font-size: 1.2em;
+        padding: 5px 10px;
+      }
+      .mensagem {
+        font-size: 1em;
+      }
+      .tab-btn {
+        font-size: .9em;
+        padding: 12px 0;
+      }
     }
   </style>
 </head>
