@@ -34,8 +34,7 @@
       border: 8px solid rgba(255,255,255,.15);
       border-top: 8px solid #fff;
       border-radius: 50%;
-      width: 80px;
-      height: 80px;
+      width: 80px; height: 80px;
       animation: spin 1.2s linear infinite;
       margin-bottom: 14px;
     }
@@ -230,7 +229,6 @@
       background: #7955ce;
       color: #fff;
     }
-
     /* Responsividade */
     @media (max-width: 768px) {
       .main-card {
@@ -328,6 +326,16 @@
         youtube: 'https://www.youtube.com/@mih_estelar',
         twitch: 'https://www.twitch.tv/mih_estelar',
         avatar: '1000104782.jpeg',
+      },
+      {
+        id: 3,
+        name: 'Kiyomi Suzuri',
+        founder: false,
+        description: 'VTuber PNG',
+        tiktok: 'https://www.tiktok.com/@kiyomisazuri123iu9?_r=1&_t=ZS-91P3GOhvveL',
+        youtube: 'https://youtube.com/@kiyomisuzuri?si=nRqYfEM0mO4VB2D_',
+        twitch: '',
+        avatar: 'Kiyomi Suzuri.jpeg'
       }
     ];
 
@@ -359,6 +367,7 @@
       `;
       return card;
     }
+
 
     function openTab(tabName) {
       ['inicio', 'TikTok', 'YouTube', 'Twitch'].forEach(t => {
