@@ -93,7 +93,6 @@
       align-items: center;
       max-width: 390px;
     }
-    /* Adicione este bloco para a aba doar */
     .doar-card {
       padding-top: 70px;
     }
@@ -291,10 +290,11 @@
     <button class="tab-btn" onclick="openTab('TikTok')">TikTok</button>
     <button class="tab-btn" onclick="openTab('YouTube')">YouTube</button>
     <button class="tab-btn" onclick="openTab('Twitch')">Twitch</button>
+    <button class="tab-btn" onclick="openTab('kick')">Kick</button>
     <button class="tab-btn" onclick="openTab('doar')">Doações</button>
   </nav>
 
-  <!-- Aba Início: Card fundador -->
+  <!-- Abas conteúdo -->
   <div id="inicio" class="tab-content active">
     <div class="main-card">
       <div class="badge">⭐ VTUBER CRIADOR</div>
@@ -311,7 +311,6 @@
     </div>
   </div>
 
-  <!-- Aba doações: Card doar -->
   <div id="doar" class="tab-content">
     <div class="main-card doar-card" style="max-width: 400px; text-align: center;">
       <div class="badge">💖 Apoie Nosso Trabalho</div>
@@ -324,11 +323,11 @@
     </div>
   </div>
 
- 
-  <!-- Abas TikTok, YouTube, Twitch -->
   <div id="TikTok" class="tab-content"></div>
   <div id="YouTube" class="tab-content"></div>
   <div id="Twitch" class="tab-content"></div>
+  <div id="kick" class="tab-content"></div>
+<!-- Abas TikTok, YouTube, Twitch -->
 
   <script>
     const vTubers = [
@@ -722,6 +721,7 @@
   name: 'Akira Demon',
   founder: false,
   description: 'VTuber',
+   kick: ' https://kick.com/akirademon0',
   tiktok: 'https://www.tiktok.com/@akirinha0__',
   youtube: 'https://www.youtube.com/@akirinhademon',
   twitch: 'https://www.twitch.tv/akirademon0',
@@ -782,35 +782,65 @@
   youtube: 'https://www.youtube.com/@nihiru_aizakku',
   tiktok: 'https://www.tiktok.com/@nihiru_aizakku',
   avatar: 'Nihiru Aizakku.jpeg' // Insira o nome do arquivo da imagem do avatar quando disponível
+},
+
+{
+  id: 43,
+  name: 'Ruzoki',
+  founder: false,
+  description: 'VTuber',
+  twitch: 'https://www.twitch.tv/ruzokivtuber',
+  youtube: 'https://www.youtube.com/@RuzokiVtuber',
+  tiktok: 'https://www.tiktok.com/@ruzokivtuber',
+  avatar: 'ruzo.jpeg' // Coloque o nome do arquivo da imagem do avatar quando disponível
+},
+
+{
+  id: 44,
+  name: 'Pepebr VT',
+  founder: false,
+  description: 'VTuber PNG',
+  tiktok: 'https://www.tiktok.com/@pepebr_vt',
+  youtube: '',
+  twitch: '',
+  avatar: 'pepe.jpeg' // Coloque o nome do arquivo da imagem do avatar quando disponível
+},
+
+{
+  id: 45,
+  name: 'Chalinhas',
+  founder: false,
+  description: 'VTuber PNG',
+  twitch: 'https://www.twitch.tv/chalinhas',
+  youtube: 'https://www.youtube.com/@chalinhasxd',
+  tiktok: 'https://www.tiktok.com/@chalinhasxd',
+  avatar: 'Chalinhas.jpeg' // Coloque o nome do arquivo da imagem PNG quando disponível
 }
 
 
 
 
-
-
-
-
-
-
-
     ];
+
     function createVTuberCard(vtuber, plataforma) {
       const card = document.createElement('div');
       card.className = 'vtuber-card';
-      if(vtuber.founder) card.classList.add('founder');
+      if (vtuber.founder) card.classList.add('founder');
       let btns = '';
-      if(plataforma === 'inicio') {
+      if (plataforma === 'inicio') {
         btns += vtuber.tiktok ? `<a href="${vtuber.tiktok}" target="_blank" rel="noopener noreferrer">TikTok</a>` : '';
         btns += vtuber.youtube ? `<a href="${vtuber.youtube}" target="_blank" rel="noopener noreferrer">YouTube</a>` : '';
         btns += vtuber.twitch ? `<a href="${vtuber.twitch}" target="_blank" rel="noopener noreferrer">Twitch</a>` : '';
+        btns += vtuber.kick ? `<a href="${vtuber.kick}" target="_blank" rel="noopener noreferrer">Kick</a>` : '';
       } else {
-        if(plataforma === 'tiktok' && vtuber.tiktok) {
+        if (plataforma === 'tiktok' && vtuber.tiktok) {
           btns = `<a href="${vtuber.tiktok}" target="_blank" rel="noopener noreferrer">TikTok</a>`;
-        } else if(plataforma === 'youtube' && vtuber.youtube) {
+        } else if (plataforma === 'youtube' && vtuber.youtube) {
           btns = `<a href="${vtuber.youtube}" target="_blank" rel="noopener noreferrer">YouTube</a>`;
-        } else if(plataforma === 'twitch' && vtuber.twitch) {
+        } else if (plataforma === 'twitch' && vtuber.twitch) {
           btns = `<a href="${vtuber.twitch}" target="_blank" rel="noopener noreferrer">Twitch</a>`;
+        } else if (plataforma === 'kick' && vtuber.kick) {
+          btns = `<a href="${vtuber.kick}" target="_blank" rel="noopener noreferrer">Kick</a>`;
         }
       }
       card.innerHTML = `
@@ -821,34 +851,36 @@
       `;
       return card;
     }
+
     function openTab(tabName) {
-      const tabs = ['inicio', 'TikTok', 'YouTube', 'Twitch', 'doar'];
+      const tabs = ['inicio', 'TikTok', 'YouTube', 'Twitch', 'kick', 'doar'];
       tabs.forEach(t => {
         const el = document.getElementById(t);
-        if(el) el.classList.remove('active');
+        if (el) el.classList.remove('active');
       });
       const current = document.getElementById(tabName);
-      if(current) current.classList.add('active');
-      // botão ativo
+      if (current) current.classList.add('active');
       document.querySelectorAll('.tab-btn').forEach(btn => {
         const label = btn.textContent.trim().toLowerCase();
         btn.classList.toggle(
           'active',
           (tabName === 'inicio' && label === 'início') ||
-          (tabName !== 'inicio' && label === tabName.toLowerCase())
+            (tabName !== 'inicio' && label === tabName.toLowerCase())
         );
       });
-      // preenche TikTok / YouTube / Twitch
-      if(tabName === 'TikTok' || tabName === 'YouTube' || tabName === 'Twitch') {
+      if (['TikTok', 'YouTube', 'Twitch', 'kick'].includes(tabName)) {
         const plataforma = tabName.toLowerCase();
         const tabContent = document.getElementById(tabName);
         tabContent.innerHTML = '';
         const filtered = vTubers.filter(v => v[plataforma]);
         filtered.forEach(vtuber => {
-          tabContent.appendChild(createVTuberCard(vtuber, plataforma));
+          if (vtuber[plataforma]) {
+            tabContent.appendChild(createVTuberCard(vtuber, plataforma));
+          }
         });
       }
     }
+
     window.addEventListener('load', () => {
       setTimeout(() => {
         document.getElementById('loading-screen').style.display = 'none';
