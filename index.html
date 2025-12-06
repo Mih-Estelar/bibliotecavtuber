@@ -65,7 +65,7 @@
       background: none;
       border: none;
       padding: 18px 0;
-      font-size: 1.2em;
+      font-size: 1.05em;
       font-weight: 900;
       color: #2c2033;
       cursor: pointer;
@@ -105,12 +105,16 @@
       object-fit: cover;
       margin-bottom: 16px;
       box-shadow: 2px 6px 0 #ff2399;
+      transition: transform 0.3s ease;
+    }
+    .main-card .avatar-hero:hover {
+      transform: scale(1.05);
     }
     .main-card .nome-vtuber {
       font-size: 2em;
       font-weight: 900;
       letter-spacing: 1px;
-      background: #ff2399;
+      background: linear-gradient(45deg, #ff2399, #7955ce);
       color: #fff;
       padding: 5px 20px;
       border-radius: 8px;
@@ -141,32 +145,33 @@
       background: #7955ce;
       color: #fff;
       font-weight: 700;
-      padding: 10px 22px;
+      padding: 12px 25px;
       border-radius: 30px;
       margin: 0 8px 8px 0;
       font-size: 1em;
       text-decoration: none;
-      box-shadow: 1px 2px 0 #ff2399;
+      box-shadow: 2px 4px 0 #ff2399;
       border: none;
-      transition: background 0.2s;
+      transition: all 0.3s ease;
     }
     .main-card .link-btn:hover {
       background: #ff2399;
-      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 3px 6px 0 #7955ce;
     }
     .badge {
       position: absolute;
       font-weight: 900;
       background: #fff;
-      padding: 4px 13px;
+      padding: 6px 15px;
       color: #ff2399;
-      font-size: 1em;
-      border-radius: 10px;
+      font-size: 1.1em;
+      border-radius: 12px;
       left: 50%;
       top: 16px;
       transform: translateX(-50%);
       letter-spacing: 1.5px;
-      box-shadow: 1px 2px 0 #7955ce;
+      box-shadow: 2px 4px 0 #7955ce;
       z-index: 2;
     }
     .tab-content {
@@ -180,58 +185,121 @@
     .tab-content.active {
       display: flex;
     }
-    .vtuber-card {
+    .vtuber-card, .parceria-card {
       background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px #2c2033;
-      width: 220px;
-      padding: 15px;
-      border: 3px solid #7955ce;
-      transition: border-color 0.3s;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(44,32,51,0.15);
+      width: 240px;
+      padding: 20px;
+      border: 4px solid #7955ce;
+      transition: all 0.3s ease;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
     }
-    .vtuber-card .vtuber-avatar {
-      width: 110px;
-      border-radius: 8px;
-      margin-bottom: 10px;
-      object-fit: cover;
-      border: 3px solid #ff2399;
+    .parceria-card {
+      border-color: #ff2399;
     }
-    .vtuber-name {
-      font-size: 1.18em;
+    .parceria-card:hover, .vtuber-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 32px rgba(255,35,153,0.25);
+    }
+    .vtuber-card .vtuber-avatar, .parceria-card .parceria-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      object-fit: cover;
+      border: 4px solid #ff2399;
+      transition: all 0.3s ease;
+    }
+    .parceria-card .parceria-avatar-placeholder {
+      width: 120px;
+      height: 120px;
+      border-radius: 12px;
+      border: 4px solid #7955ce;
+      background: linear-gradient(45deg, #ff2399, #7955ce);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      font-size: 0.85em;
+      font-weight: 900;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+    .vtuber-name, .parceria-nome {
+      font-size: 1.2em;
       font-weight: 900;
       color: #ff2399;
-      margin-bottom: 5px;
+      margin-bottom: 12px;
     }
-    .founder-label {
+    .parceria-nome {
       color: #7955ce;
-      font-weight: bold;
-      margin-left: 4px;
-      font-size: 1em;
     }
-    .vtuber-description {
-      font-size: 0.99em;
-      color: #2c2033;
-      margin-bottom: 10px;
-      font-weight: 500;
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
     }
     .social-links a {
-      margin: 0 5px;
       text-decoration: none;
       font-weight: bold;
-      color: #7955ce;
-      background: #ff2399;
-      border-radius: 8px;
-      padding: 5px 14px;
-      font-size: 0.95em;
-      transition: color 0.3s, background 0.3s;
+      color: #fff;
+      background: #7955ce;
+      border-radius: 12px;
+      padding: 6px 12px;
+      font-size: 0.85em;
+      transition: all 0.3s ease;
+      box-shadow: 1px 2px 0 #ff2399;
     }
     .social-links a:hover {
-      background: #7955ce;
+      background: #ff2399;
+      transform: translateY(-1px);
+      box-shadow: 2px 4px 0 #7955ce;
+    }
+    /* AVISO SEPARADO - FORA DO CARD */
+    .parceria-aviso {
+      background: linear-gradient(135deg, #ff2399 0%, #7955ce 100%);
+      border-radius: 20px;
+      padding: 25px;
+      text-align: center;
+      max-width: 420px;
+      margin: 25px auto 35px auto;
+      box-shadow: 0 12px 0 #2c2033;
       color: #fff;
+      position: relative;
+    }
+    .parceria-aviso::before {
+      content: '💎';
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5em;
+      box-shadow: 0 4px 0 #ff2399;
+    }
+    .parceria-aviso .preco {
+      font-size: 2.2em;
+      font-weight: 900;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    .parceria-aviso .texto {
+      font-size: 1.2em;
+      font-weight: 700;
+      margin: 0;
+      line-height: 1.4;
     }
     @media (max-width: 768px) {
       .main-card {
@@ -246,31 +314,19 @@
         height: 130px;
       }
       .tab-btn {
-        font-size: 1em;
+        font-size: 0.95em;
         padding: 14px 0;
       }
-      .nome-vtuber {
-        font-size: 1.5em;
-        padding: 5px 15px;
+      .vtuber-card, .parceria-card {
+        width: 200px;
+        padding: 16px;
       }
-    }
-    @media (max-width: 480px) {
-      .main-card {
-        padding: 12px 10px 10px 10px;
+      .parceria-aviso {
+        max-width: 90vw;
+        padding: 20px 15px;
       }
-      .doar-card {
-        padding-top: 28px;
-      }
-      .nome-vtuber {
-        font-size: 1.2em;
-        padding: 5px 10px;
-      }
-      .mensagem {
-        font-size: 1em;
-      }
-      .tab-btn {
-        font-size: .9em;
-        padding: 12px 0;
+      .parceria-aviso .preco {
+        font-size: 1.8em;
       }
     }
   </style>
@@ -286,12 +342,13 @@
 
   <!-- Navegação topo -->
   <nav class="topnav" id="topnav">
-    <button class="tab-btn active" onclick="openTab('inicio')">Início</button>
-    <button class="tab-btn" onclick="openTab('TikTok')">TikTok</button>
-    <button class="tab-btn" onclick="openTab('YouTube')">YouTube</button>
-    <button class="tab-btn" onclick="openTab('Twitch')">Twitch</button>
-    <button class="tab-btn" onclick="openTab('kick')">Kick</button>
-    <button class="tab-btn" onclick="openTab('doar')">Doações</button>
+    <button class="tab-btn active" onclick="openTab(event, 'inicio')">Início</button>
+    <button class="tab-btn" onclick="openTab(event, 'TikTok')">TikTok</button>
+    <button class="tab-btn" onclick="openTab(event, 'YouTube')">YouTube</button>
+    <button class="tab-btn" onclick="openTab(event, 'Twitch')">Twitch</button>
+    <button class="tab-btn" onclick="openTab(event, 'kick')">Kick</button>
+    <button class="tab-btn" onclick="openTab(event, 'doar')">Doações</button>
+    <button class="tab-btn" onclick="openTab(event, 'parceria')">Parcerias</button>
   </nav>
 
   <!-- Abas conteúdo -->
@@ -320,6 +377,29 @@
       <p style="font-weight: 700; font-size: 1.2em; color: #ff2399; word-break: break-all; margin-bottom: 0; margin-top: 10px;">
         PIX: 08350550945
       </p>
+    </div>
+  </div>
+
+  <!-- ABA PARCERIAS - CORRIGIDO -->
+  <div id="parceria" class="tab-content">
+    <!-- CARD SIMPLES (igual aos VTubers) -->
+    <div class="parceria-card">
+      <a href="https://www.facebook.com/share/1AxjAZksb6/" target="_blank" rel="noopener noreferrer">
+        <!-- ✅ AQUI COLOQUE A FOTO -->
+        <img src="parceriamiholiveira.jpeg" alt="Michelle Impressões" class="parceria-avatar" />
+        <!-- ⬆️ OU MANTENHA O PLACEHOLDER:
+        <div class="parceria-avatar-placeholder">📸 COLOQUE A FOTO AQUI</div> -->
+      </a>
+      <div class="parceria-nome">Parceiro Oficial Michelle Impressões</div>
+      <div class="social-links">
+        <a href="https://www.facebook.com/share/1AxjAZksb6/" target="_blank" rel="noopener noreferrer">Facebook</a>
+      </div>
+    </div>
+
+    <!-- AVISO SEPARADO COM PREÇO -->
+    <div class="parceria-aviso">
+      <div class="preco">R$ 30,00</div>
+      <div class="texto">para virar parceiro da Biblioteca VTuber</div>
     </div>
   </div>
 
@@ -1332,53 +1412,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     ];
 
     function createVTuberCard(vtuber, plataforma) {
@@ -1411,22 +1444,20 @@
       return card;
     }
 
-    function openTab(tabName) {
-      const tabs = ['inicio', 'TikTok', 'YouTube', 'Twitch', 'kick', 'doar'];
-      tabs.forEach(t => {
-        const el = document.getElementById(t);
-        if (el) el.classList.remove('active');
-      });
-      const current = document.getElementById(tabName);
-      if (current) current.classList.add('active');
-      document.querySelectorAll('.tab-btn').forEach(btn => {
-        const label = btn.textContent.trim().toLowerCase();
-        btn.classList.toggle(
-          'active',
-          (tabName === 'inicio' && label === 'início') ||
-            (tabName !== 'inicio' && label === tabName.toLowerCase())
-        );
-      });
+    function openTab(evt, tabName) {
+      const tabcontents = document.getElementsByClassName("tab-content");
+      for (let i = 0; i < tabcontents.length; i++) {
+        tabcontents[i].classList.remove('active');
+      }
+      
+      const tablinks = document.getElementsByClassName("tab-btn");
+      for (let i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove('active');
+      }
+      
+      document.getElementById(tabName).classList.add('active');
+      evt.currentTarget.classList.add('active');
+      
       if (['TikTok', 'YouTube', 'Twitch', 'kick'].includes(tabName)) {
         const plataforma = tabName.toLowerCase();
         const tabContent = document.getElementById(tabName);
