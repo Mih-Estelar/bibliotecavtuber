@@ -79,6 +79,67 @@
       border-bottom: 5px solid #ff2399;
       background: #f7f1e7;
     }
+    .search-container {
+      background: #fff;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 0 #2c2033;
+      margin-bottom: 20px;
+    }
+    .search-letras {
+      display: inline-flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .letra-btn {
+      background: linear-gradient(45deg, #ff2399, #7955ce);
+      color: #fff;
+      border: none;
+      padding: 12px 16px;
+      border-radius: 25px;
+      font-size: 1.1em;
+      font-weight: 900;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 2px 4px 0 #2c2033;
+      letter-spacing: 1px;
+      min-width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .letra-btn:hover, .letra-btn.active {
+      transform: translateY(-2px);
+      box-shadow: 4px 8px 0 #7955ce;
+      background: linear-gradient(45deg, #7955ce, #ff2399);
+    }
+    .letra-btn.todas {
+      background: #2c2033;
+      box-shadow: 2px 4px 0 #ff2399;
+    }
+    .letra-btn.todas:hover {
+      background: #ff2399;
+      box-shadow: 4px 8px 0 #2c2033;
+    }
+    .search-result {
+      text-align: center;
+      color: #ff2399;
+      font-weight: 700;
+      font-size: 1.1em;
+      margin: 10px 0;
+      min-height: 25px;
+    }
+    .vtuber-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
     .main-card {
       background: #2c2033;
       border: 6px solid #ff2399;
@@ -176,14 +237,10 @@
     }
     .tab-content {
       display: none;
-      max-width: 950px;
-      margin: 25px auto 40px auto;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
+      padding: 20px 0;
     }
     .tab-content.active {
-      display: flex;
+      display: block;
     }
     .vtuber-card, .parceria-card {
       background-color: #fff;
@@ -197,6 +254,7 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
+      margin: 10px;
     }
     .parceria-card {
       border-color: #ff2399;
@@ -214,21 +272,6 @@
       border: 4px solid #ff2399;
       transition: all 0.3s ease;
     }
-    .parceria-card .parceria-avatar-placeholder {
-      width: 120px;
-      height: 120px;
-      border-radius: 12px;
-      border: 4px solid #7955ce;
-      background: linear-gradient(45deg, #ff2399, #7955ce);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 12px;
-      font-size: 0.85em;
-      font-weight: 900;
-      color: #fff;
-      transition: all 0.3s ease;
-    }
     .vtuber-name, .parceria-nome {
       font-size: 1.2em;
       font-weight: 900;
@@ -237,6 +280,12 @@
     }
     .parceria-nome {
       color: #7955ce;
+    }
+    .vtuber-description {
+      color: #2c2033;
+      font-weight: 500;
+      margin-bottom: 12px;
+      line-height: 1.4;
     }
     .social-links {
       display: flex;
@@ -260,7 +309,6 @@
       transform: translateY(-1px);
       box-shadow: 2px 4px 0 #7955ce;
     }
-    /* AVISO SEPARADO - FORA DO CARD */
     .parceria-aviso {
       background: linear-gradient(135deg, #ff2399 0%, #7955ce 100%);
       border-radius: 20px;
@@ -328,6 +376,15 @@
       .parceria-aviso .preco {
         font-size: 1.8em;
       }
+      .search-letras {
+        gap: 6px;
+      }
+      .letra-btn {
+        padding: 10px 12px;
+        font-size: 1em;
+        min-width: 40px;
+        height: 40px;
+      }
     }
   </style>
 </head>
@@ -368,6 +425,38 @@
     </div>
   </div>
 
+  <div id="TikTok" class="tab-content">
+    <div class="search-container">
+      <div class="search-letras" id="search-letras-tiktok"></div>
+      <div class="search-result" id="search-result-tiktok"></div>
+      <div class="vtuber-grid" id="vtuber-grid-tiktok"></div>
+    </div>
+  </div>
+
+  <div id="YouTube" class="tab-content">
+    <div class="search-container">
+      <div class="search-letras" id="search-letras-youtube"></div>
+      <div class="search-result" id="search-result-youtube"></div>
+      <div class="vtuber-grid" id="vtuber-grid-youtube"></div>
+    </div>
+  </div>
+
+  <div id="Twitch" class="tab-content">
+    <div class="search-container">
+      <div class="search-letras" id="search-letras-twitch"></div>
+      <div class="search-result" id="search-result-twitch"></div>
+      <div class="vtuber-grid" id="vtuber-grid-twitch"></div>
+    </div>
+  </div>
+
+  <div id="kick" class="tab-content">
+    <div class="search-container">
+      <div class="search-letras" id="search-letras-kick"></div>
+      <div class="search-result" id="search-result-kick"></div>
+      <div class="vtuber-grid" id="vtuber-grid-kick"></div>
+    </div>
+  </div>
+
   <div id="doar" class="tab-content">
     <div class="main-card doar-card" style="max-width: 400px; text-align: center;">
       <div class="badge">💖 Apoie Nosso Trabalho</div>
@@ -380,30 +469,22 @@
     </div>
   </div>
 
-  <!-- ABA PARCERIAS - CORRIGIDO -->
   <div id="parceria" class="tab-content">
-    <!-- CARD SIMPLES (igual aos VTubers) -->
     <div class="parceria-card">
       <a href="https://www.facebook.com/share/1AxjAZksb6/" target="_blank" rel="noopener noreferrer">
-        <!-- ✅ AQUI COLOQUE A FOTO -->
         <img src="parceriamiholiveira.jpeg" alt="Michelle Impressões" class="parceria-avatar" />
-        <!-- ⬆️ OU MANTENHA O PLACEHOLDER:
-        <div class="parceria-avatar-placeholder">📸 COLOQUE A FOTO AQUI</div> -->
       </a>
       <div class="parceria-nome">Parceiro Oficial Michelle Impressões</div>
       <div class="social-links">
         <a href="https://www.facebook.com/share/1AxjAZksb6/" target="_blank" rel="noopener noreferrer">Facebook</a>
       </div>
     </div>
-
-    <!-- AVISO SEPARADO COM PREÇO -->
     <div class="parceria-aviso">
       <div class="preco">R$ 30,00</div>
       <div class="texto">para virar parceiro da Biblioteca VTuber</div>
     </div>
   </div>
-
-  <div id="TikTok" class="tab-content"></div>
+<div id="TikTok" class="tab-content"></div>
   <div id="YouTube" class="tab-content"></div>
   <div id="Twitch" class="tab-content"></div>
   <div id="kick" class="tab-content"></div>
@@ -2081,37 +2162,109 @@
 
     ];
 
-    function createVTuberCard(vtuber, plataforma) {
+    let currentTabCards = {};
+
+    function createLetrasButtons(containerId, gridId, platform) {
+      const container = document.getElementById(containerId);
+      container.innerHTML = '';
+      
+      // Botão TODAS
+      const todasBtn = document.createElement('button');
+      todasBtn.className = 'letra-btn todas active';
+      todasBtn.textContent = 'TODAS';
+      todasBtn.onclick = function() { filterByLetter(gridId, platform, ''); };
+      container.appendChild(todasBtn);
+
+      // Botões A-Z
+      const letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+      letras.forEach(letra => {
+        const btn = document.createElement('button');
+        btn.className = 'letra-btn';
+        btn.textContent = letra;
+        btn.onclick = function() { filterByLetter(gridId, platform, letra); };
+        container.appendChild(btn);
+      });
+    }
+
+    function filterByLetter(gridId, platform, letra) {
+      const grid = document.getElementById(gridId);
+      const cards = grid.querySelectorAll('.vtuber-card');
+      const buttons = grid.parentElement.querySelectorAll('.letra-btn');
+      
+      // Remove active dos botões
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      let visibleCount = 0;
+      cards.forEach(card => {
+        const nome = card.querySelector('.vtuber-name').textContent.trim()[0].toUpperCase();
+        if (letra === '' || nome === letra) {
+          card.style.display = 'flex';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // Atualiza contador
+      const resultEl = document.getElementById(`search-result-${platform}`);
+      if (letra === '') {
+        resultEl.textContent = `Mostrando todos (${cards.length})`;
+      } else {
+        resultEl.textContent = `Letra "${letra}": ${visibleCount} encontrados`;
+      }
+    }
+
+    function createVTuberCard(vtuber, platform) {
       const card = document.createElement('div');
       card.className = 'vtuber-card';
-      if (vtuber.founder) card.classList.add('founder');
-      let btns = '';
-      if (plataforma === 'inicio') {
-        btns += vtuber.tiktok ? `<a href="${vtuber.tiktok}" target="_blank" rel="noopener noreferrer">TikTok</a>` : '';
-        btns += vtuber.youtube ? `<a href="${vtuber.youtube}" target="_blank" rel="noopener noreferrer">YouTube</a>` : '';
-        btns += vtuber.twitch ? `<a href="${vtuber.twitch}" target="_blank" rel="noopener noreferrer">Twitch</a>` : '';
-        btns += vtuber.kick ? `<a href="${vtuber.kick}" target="_blank" rel="noopener noreferrer">Kick</a>` : '';
-      } else {
-        if (plataforma === 'tiktok' && vtuber.tiktok) {
-          btns = `<a href="${vtuber.tiktok}" target="_blank" rel="noopener noreferrer">TikTok</a>`;
-        } else if (plataforma === 'youtube' && vtuber.youtube) {
-          btns = `<a href="${vtuber.youtube}" target="_blank" rel="noopener noreferrer">YouTube</a>`;
-        } else if (plataforma === 'twitch' && vtuber.twitch) {
-          btns = `<a href="${vtuber.twitch}" target="_blank" rel="noopener noreferrer">Twitch</a>`;
-        } else if (plataforma === 'kick' && vtuber.kick) {
-          btns = `<a href="${vtuber.kick}" target="_blank" rel="noopener noreferrer">Kick</a>`;
-        }
+      const link = vtuber[platform];
+      
+      if (link) {
+        const platformName = platform.charAt(0).toUpperCase() + platform.slice(1);
+        card.innerHTML = `
+          <img src="${vtuber.avatar}" alt="${vtuber.name}" class="vtuber-avatar" />
+          <div class="vtuber-name">${vtuber.name}${vtuber.founder ? ' ⭐ Fundador' : ''}</div>
+          <div class="vtuber-description">${vtuber.description}</div>
+          <div class="social-links">
+            <a href="${link}" target="_blank" rel="noopener noreferrer">${platformName}</a>
+          </div>
+        `;
       }
-      card.innerHTML = `
-        <img src="${vtuber.avatar}" alt="${vtuber.name}" class="vtuber-avatar" />
-        <div class="vtuber-name">${vtuber.name}${vtuber.founder ? '<span class="founder-label">⭐ Fundador</span>' : ''}</div>
-        <div class="vtuber-description">${vtuber.description}</div>
-        <div class="social-links">${btns}</div>
-      `;
       return card;
     }
 
+    function loadTabContent(tabName) {
+      const plataforma = tabName.toLowerCase();
+      const gridId = `vtuber-grid-${plataforma}`;
+      const searchId = `search-letras-${plataforma}`;
+      
+      // Cria botões se não existem
+      if (!document.getElementById(searchId).hasChildNodes()) {
+        createLetrasButtons(searchId, gridId, plataforma);
+      }
+      
+      // Cria cards se não existem
+      if (!currentTabCards[plataforma]) {
+        const grid = document.getElementById(gridId);
+        const filtered = vTubers.filter(v => v[plataforma]);
+        
+        filtered.forEach(vtuber => {
+          grid.appendChild(createVTuberCard(vtuber, plataforma));
+        });
+        
+        currentTabCards[plataforma] = true;
+      }
+      
+      // Ativa TODAS
+      setTimeout(() => {
+        const todasBtn = document.querySelector(`#${searchId} .todas`);
+        if (todasBtn) todasBtn.click();
+      }, 100);
+    }
+
     function openTab(evt, tabName) {
+      // Fecha todas as abas
       const tabcontents = document.getElementsByClassName("tab-content");
       for (let i = 0; i < tabcontents.length; i++) {
         tabcontents[i].classList.remove('active');
@@ -2122,22 +2275,17 @@
         tablinks[i].classList.remove('active');
       }
       
+      // Abre aba clicada
       document.getElementById(tabName).classList.add('active');
       evt.currentTarget.classList.add('active');
       
+      // Carrega conteúdo das abas de plataforma
       if (['TikTok', 'YouTube', 'Twitch', 'kick'].includes(tabName)) {
-        const plataforma = tabName.toLowerCase();
-        const tabContent = document.getElementById(tabName);
-        tabContent.innerHTML = '';
-        const filtered = vTubers.filter(v => v[plataforma]);
-        filtered.forEach(vtuber => {
-          if (vtuber[plataforma]) {
-            tabContent.appendChild(createVTuberCard(vtuber, plataforma));
-          }
-        });
+        loadTabContent(tabName);
       }
     }
 
+    // Inicialização
     window.addEventListener('load', () => {
       setTimeout(() => {
         document.getElementById('loading-screen').style.display = 'none';
