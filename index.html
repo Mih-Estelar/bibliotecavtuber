@@ -235,6 +235,44 @@
       box-shadow: 2px 4px 0 #7955ce;
       z-index: 2;
     }
+    
+    /* Novo estilo para o contador total de VTubers */
+    .total-vtubers {
+      background: linear-gradient(45deg, #ff2399, #7955ce);
+      color: #fff;
+      border-radius: 20px;
+      padding: 20px 30px;
+      margin: 0 auto 40px auto;
+      text-align: center;
+      box-shadow: 0 8px 0 #2c2033;
+      font-size: 1.4em;
+      font-weight: 900;
+      letter-spacing: 2px;
+      max-width: 300px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    .total-vtubers::before {
+      content: '📊';
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3em;
+      box-shadow: 0 4px 0 #ff2399;
+    }
+    .total-vtubers:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 0 #7955ce;
+    }
+    
     .tab-content {
       display: none;
       padding: 20px 0;
@@ -385,6 +423,11 @@
         min-width: 40px;
         height: 40px;
       }
+      .total-vtubers {
+        font-size: 1.2em;
+        padding: 16px 24px;
+        max-width: 280px;
+      }
     }
   </style>
 </head>
@@ -423,6 +466,8 @@
         <a class="link-btn" href="https://www.twitch.tv/mih_estelar" target="_blank" rel="noopener noreferrer">Twitch</a>
       </div>
     </div>
+    <!-- Quadrado com total de VTubers -->
+    <div class="total-vtubers" id="total-vtubers">0 VTubers</div>
   </div>
 
   <div id="TikTok" class="tab-content">
@@ -484,7 +529,8 @@
       <div class="texto">para virar parceiro da Biblioteca VTuber</div>
     </div>
   </div>
-<div id="TikTok" class="tab-content"></div>
+
+  <div id="TikTok" class="tab-content"></div>
   <div id="YouTube" class="tab-content"></div>
   <div id="Twitch" class="tab-content"></div>
   <div id="kick" class="tab-content"></div>
@@ -3064,17 +3110,22 @@
   name: 'Mistri',
   founder: false,
   description: 'VTuber Png',
-  tiktok: '',
+  tiktok: 'https://www.tiktok.com/@mistri.523?_r=1&_t=ZS-91puRxW0oiu',
   youtube: 'https://youtube.com/@mistri.sempai523?si=tWIO4KNF-YQ8in3p',
   twitch: '',
   kick: '',
   avatar: 'Mistri.png' // Insira o nome do arquivo da imagem do avatar quando disponível
 },
-
-
     ];
 
     let currentTabCards = {};
+
+    // Função para atualizar o contador total de VTubers
+    function updateTotalVTubers() {
+      const total = vTubers.length;
+      const totalElement = document.getElementById('total-vtubers');
+      totalElement.textContent = `${total} VTubers na Biblioteca`;
+    }
 
     function createLetrasButtons(containerId, gridId, platform) {
       const container = document.getElementById(containerId);
@@ -3201,6 +3252,8 @@
     window.addEventListener('load', () => {
       setTimeout(() => {
         document.getElementById('loading-screen').style.display = 'none';
+        // Atualiza o contador total de VTubers após o carregamento
+        updateTotalVTubers();
       }, 2400);
     });
   </script>
