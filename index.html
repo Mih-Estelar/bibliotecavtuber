@@ -11,6 +11,8 @@
       color: #2c2033;
       font-family: 'Montserrat', Arial, Helvetica, sans-serif;
     }
+    
+    /* Loading */
     #loading-screen {
       position: fixed;
       top: 0; left: 0;
@@ -46,10 +48,11 @@
       font-weight: 800;
       letter-spacing: 1px;
       text-shadow: 0 2px 5px #bc1b70;
-      font-family: 'Montserrat', Arial, sans-serif;
       margin-top: 12px;
       text-align: center;
     }
+    
+    /* Navegação */
     .topnav {
       width: 100%;
       background: #fff;
@@ -79,6 +82,74 @@
       border-bottom: 5px solid #ff2399;
       background: #f7f1e7;
     }
+    
+    /* ✅ BOTÕES PAÍS COM IMAGENS JPEG */
+    .pais-selector {
+      background: linear-gradient(45deg, #ff2399, #7955ce);
+      padding: 20px;
+      text-align: center;
+      margin: 20px auto;
+      border-radius: 25px;
+      box-shadow: 0 8px 0 #2c2033;
+      max-width: 500px;
+    }
+    .pais-selector h3 {
+      color: #fff;
+      font-size: 1.3em;
+      margin: 0 0 18px 0;
+      font-weight: 900;
+      letter-spacing: 1.2px;
+    }
+    .pais-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .pais-btn {
+      background: #fff;
+      color: #2c2033;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 25px;
+      font-size: 1.05em;
+      font-weight: 900;
+      cursor: pointer;
+      letter-spacing: 1px;
+      box-shadow: 3px 6px 0 #ff2399;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 52px;
+      position: relative;
+      overflow: hidden;
+    }
+    /* ✅ ESTILO DAS IMAGENS DE BANDEIRA */
+    .pais-btn img.bandera {
+      width: 32px;
+      height: 24px;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+    .pais-btn:hover:not(.active) img.bandera,
+    .pais-btn.active img.bandera {
+      transform: scale(1.1);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    .pais-btn:hover:not(.active),
+    .pais-btn.active {
+      transform: translateY(-3px);
+      box-shadow: 5px 9px 0 #7955ce;
+      background: linear-gradient(45deg, #ff2399, #7955ce);
+      color: #fff;
+    }
+    .pais-btn.brasil { border: 3px solid #00ff88; }
+    .pais-btn.portugal { border: 3px solid #1e90ff; }
+    
+    /* Search */
     .search-container {
       background: #fff;
       padding: 20px;
@@ -87,10 +158,25 @@
       margin-bottom: 20px;
     }
     .search-letras {
-      display: inline-flex;
+      display: none;
       gap: 8px;
       flex-wrap: wrap;
       justify-content: center;
+    }
+    .search-letras.mostrar {
+      display: flex !important;
+    }
+    .search-result {
+      text-align: center;
+      color: #ff2399;
+      font-weight: 700;
+      font-size: 1.1em;
+      margin: 10px 0;
+      min-height: 25px;
+      display: none;
+    }
+    .search-result.mostrar {
+      display: block !important;
     }
     .letra-btn {
       background: linear-gradient(45deg, #ff2399, #7955ce);
@@ -101,9 +187,7 @@
       font-size: 1.1em;
       font-weight: 900;
       cursor: pointer;
-      transition: all 0.3s ease;
       box-shadow: 2px 4px 0 #2c2033;
-      letter-spacing: 1px;
       min-width: 45px;
       height: 45px;
       display: flex;
@@ -111,9 +195,9 @@
       justify-content: center;
     }
     .letra-btn:hover, .letra-btn.active {
+      background: linear-gradient(45deg, #7955ce, #ff2399);
       transform: translateY(-2px);
       box-shadow: 4px 8px 0 #7955ce;
-      background: linear-gradient(45deg, #7955ce, #ff2399);
     }
     .letra-btn.todas {
       background: #2c2033;
@@ -123,14 +207,8 @@
       background: #ff2399;
       box-shadow: 4px 8px 0 #2c2033;
     }
-    .search-result {
-      text-align: center;
-      color: #ff2399;
-      font-weight: 700;
-      font-size: 1.1em;
-      margin: 10px 0;
-      min-height: 25px;
-    }
+    
+    /* Grid */
     .vtuber-grid {
       display: flex;
       justify-content: center;
@@ -139,7 +217,13 @@
       max-width: 950px;
       margin: 0 auto;
       padding: 0 20px;
+      display: none;
     }
+    .vtuber-grid.mostrar {
+      display: flex !important;
+    }
+    
+    /* Cards */
     .main-card {
       background: #2c2033;
       border: 6px solid #ff2399;
@@ -154,22 +238,14 @@
       align-items: center;
       max-width: 390px;
     }
-    .doar-card {
-      padding-top: 70px;
-    }
     .main-card .avatar-hero {
       width: 180px;
       height: 180px;
       border-radius: 18px;
       border: 6px solid #fff;
-      background: #fff;
       object-fit: cover;
       margin-bottom: 16px;
       box-shadow: 2px 6px 0 #ff2399;
-      transition: transform 0.3s ease;
-    }
-    .main-card .avatar-hero:hover {
-      transform: scale(1.05);
     }
     .main-card .nome-vtuber {
       font-size: 2em;
@@ -181,28 +257,19 @@
       border-radius: 8px;
       margin-bottom: 12px;
       box-shadow: 2px 4px 0 #7955ce;
-      text-align: center;
     }
     .main-card .mensagem {
       background: #fff;
       color: #2c2033;
       font-size: 1.1em;
-      font-family: 'Montserrat', Arial, sans-serif;
       margin: 0 auto 14px auto;
       padding: 17px 12px 15px 12px;
       border-radius: 10px;
       box-shadow: 0 3px 0 #ff2399;
-      font-weight: 500;
       max-width: 300px;
       text-align: center;
     }
-    .main-card .redes-sociais {
-      text-align: center;
-      margin-top: 4px;
-      margin-bottom: 2px;
-    }
     .main-card .link-btn {
-      display: inline-block;
       background: #7955ce;
       color: #fff;
       font-weight: 700;
@@ -212,8 +279,7 @@
       font-size: 1em;
       text-decoration: none;
       box-shadow: 2px 4px 0 #ff2399;
-      border: none;
-      transition: all 0.3s ease;
+      display: inline-block;
     }
     .main-card .link-btn:hover {
       background: #ff2399;
@@ -233,10 +299,7 @@
       transform: translateX(-50%);
       letter-spacing: 1.5px;
       box-shadow: 2px 4px 0 #7955ce;
-      z-index: 2;
     }
-    
-    /* Novo estilo para o contador total de VTubers */
     .total-vtubers {
       background: linear-gradient(45deg, #ff2399, #7955ce);
       color: #fff;
@@ -249,36 +312,86 @@
       font-weight: 900;
       letter-spacing: 2px;
       max-width: 300px;
-      position: relative;
-      transition: all 0.3s ease;
-    }
-    .total-vtubers::before {
-      content: '📊';
-      position: absolute;
-      top: -15px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #fff;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3em;
-      box-shadow: 0 4px 0 #ff2399;
-    }
-    .total-vtubers:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 0 #7955ce;
     }
     
+    .vtuber-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(44,32,51,0.15);
+      width: 240px;
+      padding: 20px;
+      border: 4px solid #7955ce;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin: 10px;
+    }
+    .vtuber-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 32px rgba(255,35,153,0.25);
+    }
+    .vtuber-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      object-fit: cover;
+      border: 4px solid #ff2399;
+    }
+    .vtuber-name {
+      font-size: 1.2em;
+      font-weight: 900;
+      color: #ff2399;
+      margin-bottom: 12px;
+    }
+    .vtuber-description {
+      color: #2c2033;
+      font-weight: 500;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+    }
+    .social-links a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #fff;
+      background: #7955ce;
+      border-radius: 12px;
+      padding: 6px 12px;
+      font-size: 0.85em;
+      box-shadow: 1px 2px 0 #ff2399;
+    }
+    .social-links a:hover {
+      background: #ff2399;
+      transform: translateY(-1px);
+      box-shadow: 2px 4px 0 #7955ce;
+    
+     }
+    .doar-card {
+      padding-top: 70px;
+    }
+    
+    
+    /* Tabs */
     .tab-content {
       display: none;
       padding: 20px 0;
     }
     .tab-content.active {
       display: block;
+    }
+    
+    @media (max-width: 768px) {
+      .pais-buttons { flex-direction: column; gap: 12px; }
+      .pais-btn { width: 160px; padding: 10px 16px; gap: 8px; }
+      .pais-btn img.bandera { width: 28px; height: 20px; }
     }
     .vtuber-card, .parceria-card {
       background-color: #fff;
@@ -433,15 +546,15 @@
 </head>
 <body>
 
-  <!-- Tela de carregamento -->
+  <!-- Loading -->
   <div id="loading-screen">
-    <img src="1000417115.png" alt="Mascote carregando" class="mascote" />
+    <img src="1000417115.png" alt="Mascote" class="mascote" />
     <div class="loader"></div>
     <div class="texto">Carregando Biblioteca VTuber...</div>
   </div>
 
-  <!-- Navegação topo -->
-  <nav class="topnav" id="topnav">
+  <!-- Navegação -->
+  <nav class="topnav">
     <button class="tab-btn active" onclick="openTab(event, 'inicio')">Início</button>
     <button class="tab-btn" onclick="openTab(event, 'TikTok')">TikTok</button>
     <button class="tab-btn" onclick="openTab(event, 'YouTube')">YouTube</button>
@@ -451,7 +564,7 @@
     <button class="tab-btn" onclick="openTab(event, 'parceria')">Parcerias</button>
   </nav>
 
-  <!-- Abas conteúdo -->
+  <!-- INÍCIO -->
   <div id="inicio" class="tab-content active">
     <div class="main-card">
       <div class="badge">⭐ VTUBER CRIADOR</div>
@@ -466,43 +579,98 @@
         <a class="link-btn" href="https://www.twitch.tv/mih_estelar" target="_blank" rel="noopener noreferrer">Twitch</a>
       </div>
     </div>
-    <!-- Quadrado com total de VTubers -->
     <div class="total-vtubers" id="total-vtubers">0 VTubers</div>
   </div>
 
+  <!-- TIKTOK ✅ COM IMAGENS DE BANDEIRA -->
   <div id="TikTok" class="tab-content">
     <div class="search-container">
+      <div class="pais-selector">
+        <h3>🇧🇷🇵🇹 Escolha seu País</h3>
+        <div class="pais-buttons">
+          <button class="pais-btn brasil" onclick="carregarPlataforma('TikTok', 'tiktok', 'brasil', 'TikTok')">
+            <img src="brasil_flag.jpg" alt="🇧🇷 Brasil" class="bandera" />
+            Brasil
+          </button>
+          <button class="pais-btn portugal" onclick="carregarPlataforma('TikTok', 'tiktok', 'portugal', 'TikTok')">
+            <img src="portugal_flag.jpg" alt="🇵🇹 Portugal" class="bandera" />
+            Portugal
+          </button>
+        </div>
+      </div>
       <div class="search-letras" id="search-letras-tiktok"></div>
       <div class="search-result" id="search-result-tiktok"></div>
       <div class="vtuber-grid" id="vtuber-grid-tiktok"></div>
     </div>
   </div>
 
+  <!-- YOUTUBE ✅ COM IMAGENS DE BANDEIRA -->
   <div id="YouTube" class="tab-content">
     <div class="search-container">
+      <div class="pais-selector">
+        <h3>🇧🇷🇵🇹 Escolha seu País</h3>
+        <div class="pais-buttons">
+          <button class="pais-btn brasil" onclick="carregarPlataforma('YouTube', 'youtube', 'brasil', 'YouTube')">
+            <img src="brasil_flag.jpg" alt="🇧🇷 Brasil" class="bandera" />
+            Brasil
+          </button>
+          <button class="pais-btn portugal" onclick="carregarPlataforma('YouTube', 'youtube', 'portugal', 'YouTube')">
+            <img src="portugal_flag.jpg" alt="🇵🇹 Portugal" class="bandera" />
+            Portugal
+          </button>
+        </div>
+      </div>
       <div class="search-letras" id="search-letras-youtube"></div>
       <div class="search-result" id="search-result-youtube"></div>
       <div class="vtuber-grid" id="vtuber-grid-youtube"></div>
     </div>
   </div>
 
+  <!-- TWITCH ✅ COM IMAGENS DE BANDEIRA -->
   <div id="Twitch" class="tab-content">
     <div class="search-container">
+      <div class="pais-selector">
+        <h3>🇧🇷🇵🇹 Escolha seu País</h3>
+        <div class="pais-buttons">
+          <button class="pais-btn brasil" onclick="carregarPlataforma('Twitch', 'twitch', 'brasil', 'Twitch')">
+            <img src="brasil_flag.jpg" alt="🇧🇷 Brasil" class="bandera" />
+            Brasil
+          </button>
+          <button class="pais-btn portugal" onclick="carregarPlataforma('Twitch', 'twitch', 'portugal', 'Twitch')">
+            <img src="portugal_flag.jpg" alt="🇵🇹 Portugal" class="bandera" />
+            Portugal
+          </button>
+        </div>
+      </div>
       <div class="search-letras" id="search-letras-twitch"></div>
       <div class="search-result" id="search-result-twitch"></div>
       <div class="vtuber-grid" id="vtuber-grid-twitch"></div>
     </div>
   </div>
 
+  <!-- KICK ✅ COM IMAGENS DE BANDEIRA -->
   <div id="kick" class="tab-content">
     <div class="search-container">
+      <div class="pais-selector">
+        <h3>🇧🇷🇵🇹 Escolha seu País</h3>
+        <div class="pais-buttons">
+          <button class="pais-btn brasil" onclick="carregarPlataforma('kick', 'kick', 'brasil', 'Kick')">
+            <img src="brasil_flag.jpg" alt="🇧🇷 Brasil" class="bandera" />
+            Brasil
+          </button>
+          <button class="pais-btn portugal" onclick="carregarPlataforma('kick', 'kick', 'portugal', 'Kick')">
+            <img src="portugal_flag.jpg" alt="🇵🇹 Portugal" class="bandera" />
+            Portugal
+          </button>
+        </div>
+      </div>
       <div class="search-letras" id="search-letras-kick"></div>
       <div class="search-result" id="search-result-kick"></div>
       <div class="vtuber-grid" id="vtuber-grid-kick"></div>
     </div>
   </div>
 
-  <div id="doar" class="tab-content">
+ <div id="doar" class="tab-content">
     <div class="main-card doar-card" style="max-width: 400px; text-align: center;">
       <div class="badge">💖 Apoie Nosso Trabalho</div>
       <h2 style="margin-top:32px;">Faça Sua Doação</h2>
@@ -541,18 +709,12 @@
       <div class="texto">para virar parceiro da Biblioteca VTuber</div>
     </div>
   </div>
-
-  <div id="TikTok" class="tab-content"></div>
-  <div id="YouTube" class="tab-content"></div>
-  <div id="Twitch" class="tab-content"></div>
-  <div id="kick" class="tab-content"></div>
-<!-- Abas TikTok, YouTube, Twitch -->
-
   <script>
     const vTubers = [
       {
         id: 1,
         name: 'Aster',
+         pais: 'brasil',
         founder: false,
         description: 'Criador de conteúdo (PNG VTuber)',
         tiktok: 'https://www.tiktok.com/@aster8628?_r=1&_t=ZS-91OzuqVmlBo',
@@ -563,6 +725,7 @@
       {
         id: 2,
         name: 'mih_estelar',
+         pais: 'brasil',
         founder: true,
         description: 'Fundador e VTuber principal',
         tiktok: 'https://www.tiktok.com/@mih_estelar',
@@ -573,6 +736,7 @@
       {
         id: 3,
         name: 'Kiyomi Suzuri',
+         pais: 'brasil',
         founder: false,
         description: 'VTuber PNG',
         tiktok: 'https://www.tiktok.com/@kiyomisazuri123iu9?_r=1&_t=ZS-91P3GOhvveL',
@@ -583,6 +747,7 @@
       {
         id: 4,
         name: 'Fumi',
+         pais: 'brasil',
         founder: false,
         description: 'VTuber',
         tiktok: '',
@@ -594,6 +759,7 @@
       {
   id: 5,
   name: 'Hanakokaede',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@hanakokaede?is_from_webapp=1&sender_device=pc',
@@ -604,6 +770,7 @@
       {
   id: 6,
   name: 'AKAKURA Deki',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: 'https://www.tiktok.com/@sakomo.hideki',
@@ -615,6 +782,7 @@
      {
   id: 7,  // próximo id sequencial
   name: 'zezeguima',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: '',
@@ -626,6 +794,7 @@
     {
   id: 8,
   name: 'Puck',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: 'https://www.tiktok.com/@pu_puck?_r=1&_t=ZS-91PBz0ikFz2',
@@ -637,6 +806,7 @@
 {
   id: 9,
   name: 'Katreis',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: 'https://www.tiktok.com/@katreiss',
@@ -648,6 +818,7 @@
 {
   id: 10,
   name: 'Vulperian',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: '',
@@ -659,6 +830,7 @@
 {
   id: 11,
   name: 'Charlottedanthas',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@charlottedanthas?_r=1&_t=ZS-91QlOw7k7i3',
@@ -670,6 +842,7 @@
 {
   id: 12,
   name: 'Kaze Brown',
+       pais: 'portugal',
   founder: false,
   description: 'VTuber PNG',
   tiktok: 'https://www.tiktok.com/@kaze_magodaluz',
@@ -681,7 +854,8 @@
 
   {
   id: 15,
-  name: 'Neo Cat',  // nome conforme o TikTok passado anteriormente, pode ajustar se desejar
+  name: 'Neo Cat', 
+   pais: 'brasil', // nome conforme o TikTok passado anteriormente, pode ajustar se desejar
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@neo_cat_vtube?_r=1&_t=ZS-91QtYDz87XB',
@@ -694,6 +868,7 @@
 {
   id: 14,
   name: 'Shori',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@shori09w?_r=1&_t=ZS-91VQKtiLEyG',
@@ -705,6 +880,7 @@
 {
   id: 16,
   name: 'Bela Nichikawe',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@bela_nichikawe',
@@ -716,6 +892,7 @@
 {
   id: 17,
   name: 'Kamui Akagetsu',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: '',
@@ -727,6 +904,7 @@
 {
   id: 18,
   name: 'Arthur Hellsing',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: '',
@@ -738,6 +916,7 @@
 {
   id: 19,
   name: 'AkariDanshi',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: '',
@@ -749,6 +928,7 @@
 {
   id: 20,
   name: 'Mayu',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@mayu_eluar?_r=1&_t=ZS-91XDkiEC4ri',
@@ -760,6 +940,7 @@
 {
   id: 21,
   name: 'Karlon Hill',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@karlon_hill',
@@ -771,6 +952,7 @@
 {
   id: 22,
   name: 'Linsy',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: 'https://www.tiktok.com/@linsy4871?_r=1&_t=ZS-93Mn7KcT7FV',
@@ -782,6 +964,7 @@
 {
   id: 23,
   name: 'KoweRewok',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: 'https://www.tiktok.com/@kowerr3wok',
@@ -793,6 +976,7 @@
 {
   id: 24,
   name: 'Tullipy Games',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber',
   instagram: 'https://www.instagram.com/tullipy_games/',
@@ -806,6 +990,7 @@
 {
   id: 25,
   name: 'Hyunjin',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@ohyunjinnn',
@@ -817,6 +1002,7 @@
 {
   id: 26,
   name: 'Passiflora Asio',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@passiflora_asio',
@@ -828,6 +1014,7 @@
 {
   id: 27,
   name: 'ni Póizon',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: 'https://www.tiktok.com/@ni_pizon',
@@ -839,6 +1026,7 @@
 {
   id: 28,
   name: 'Aprendiz 57',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: 'https://www.tiktok.com/@aprendiz_57',
@@ -850,6 +1038,7 @@
 {
   id: 29,
   name: 'Berry Bunny Cat',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@berrybunnycat',
@@ -861,6 +1050,7 @@
 {
   id: 30,
   name: 'Sugashikkk',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: 'https://www.tiktok.com/@ody.nikito',
@@ -872,6 +1062,7 @@
 {
   id: 31,
   name: 'directtwo',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@xxdirectxx',
@@ -883,6 +1074,7 @@
 {
   id: 32,
   name: 'Biblioteca do Lob',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: 'https://www.tiktok.com/@biblioteca.do.lob?_r=1&_t=ZS-91Yv49OUN3A',
@@ -894,6 +1086,7 @@
 {
   id: 33,
   name: 'Hanzota o Dracthy',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: 'https://www.tiktok.com/@hanzota.o.dracthy',
@@ -907,6 +1100,7 @@
   name: 'Ayumi',
   founder: false,
   description: 'VTuber',
+   pais: 'brasil',
   tiktok: 'https://www.tiktok.com/@ayumi_vtuberbr',
   youtube: 'https://youtube.com/@ayumi.vtuberbr',
   twitch: 'https://www.twitch.tv/ayumitsukiofc',
@@ -916,6 +1110,7 @@
 {
   id: 35,
   name: 'Neruna Naru',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@nerunanaru',
@@ -927,6 +1122,7 @@
 {
   id: 36,
   name: 'Miyukitsuki VT',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: 'https://www.tiktok.com/@miyukitsukivt',
@@ -938,6 +1134,7 @@
 {
   id: 37,
   name: 'Akira Demon',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber',
    kick: ' https://kick.com/akirademon0',
@@ -950,6 +1147,7 @@
 {
   id: 38,
   name: 'Sugary Rosemary',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@sugaryrosemary',
@@ -961,6 +1159,7 @@
 {
   id: 39,
   name: 'Shiroyagami',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: 'https://www.tiktok.com/@shiroyagami_',
@@ -972,6 +1171,7 @@
 {
   id: 40,
   name: 'Ivy Nyx',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber',
    kick: ' https://kick.com/ivy-nyx',
@@ -984,6 +1184,7 @@
 {
   id: 41,
   name: 'Maaybemeiko',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://www.youtube.com/@maaybemeiko',
@@ -995,6 +1196,7 @@
 {
   id: 42,
   name: 'Nihiru Aizakku',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber',
   kick: 'https://kick.com/nihiru-aizakku',
@@ -1007,6 +1209,7 @@
 {
   id: 43,
   name: 'Ruzoki',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber',
   twitch: 'https://www.twitch.tv/ruzokivtuber',
@@ -1018,6 +1221,7 @@
 {
   id: 44,
   name: 'Pepebr VT',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: 'https://www.tiktok.com/@pepebr_vt',
@@ -1029,6 +1233,7 @@
 {
   id: 45,
   name: 'Chalinhas',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   twitch: 'https://www.twitch.tv/chalinhas',
@@ -1040,6 +1245,7 @@
 {
   id: 46,
   name: 'Mizukihanahaki',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber ',
   tiktok: 'https://www.tiktok.com/@mizukihanahakivtuber',
@@ -1051,6 +1257,7 @@
 {
   id: 47,
   name: 'Biggo Bongo',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://www.youtube.com/@BiggoBongo',
@@ -1062,6 +1269,7 @@
 {
   id: 48,
   name: 'Alenny',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: 'https://www.tiktok.com/@alenny_25',
@@ -1073,6 +1281,7 @@
 {
   id: 49,
   name: 'Miwa Daril ',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   twitch: 'https://www.twitch.tv/liy_1423',
@@ -1084,6 +1293,7 @@
 {
   id: 50,
   name: 'Danteogatoo',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@dante0gato',
@@ -1095,6 +1305,7 @@
 {
   id: 51,
   name: 'Minutinho Gamer',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: 'https://www.tiktok.com/@minutinho_gamer',
@@ -1106,6 +1317,7 @@
 {
   id: 52,
   name: 'ZmoGeko',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: 'https://www.tiktok.com/@zmogeko',
@@ -1117,6 +1329,7 @@
 {
   id: 53,
   name: 'Xeynin',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   twitch: 'https://m.twitch.tv/xeyninvtuber',
@@ -1128,6 +1341,7 @@
 {
   id: 54,
   name: 'Minkakau',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://youtube.com/@minkakau',
@@ -1139,6 +1353,7 @@
 {
   id: 55,
   name: 'Tem Mais Gatinhos',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber ',
   youtube: 'https://youtube.com/@tem_mais_gatinhos',
@@ -1150,6 +1365,7 @@
 {
   id: 56,
   name: 'Frakyel',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   twitch: 'https://www.twitch.tv/frakyel',
@@ -1161,6 +1377,7 @@
 {
   id: 57,
   name: 'Mint Kuzuri',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   instagram: 'https://www.instagram.com/kuzuri_mint',
@@ -1174,6 +1391,7 @@
 {
   id: 58,
   name: 'Ryoushiroz',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: 'https://www.tiktok.com/@ryoushiroz',
@@ -1185,6 +1403,7 @@
 {
   id: 59,
   name: 'Just An Apathetic',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: 'https://www.tiktok.com/@just_an_apathetic',
@@ -1196,6 +1415,7 @@
 {
   id: 60,
   name: 'AtalVoid',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: 'https://www.tiktok.com/@atalvoid',
@@ -1207,6 +1427,7 @@
 {
   id: 61,
   name: 'Yumi Flame',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://youtube.com/@yumi_flame',
@@ -1218,6 +1439,7 @@
 {
   id: 62,
   name: 'Betrixyy',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@betrixyy',
@@ -1229,6 +1451,7 @@
 {
   id: 63,
   name: 'Naetheferis',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://youtube.com/@naetheferis',
@@ -1240,6 +1463,7 @@
 {
   id: 64,
   name: 'Titilives BR',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: 'https://www.tiktok.com/@titilives.br',
@@ -1251,6 +1475,7 @@
 {
   id: 65,
   name: 'Edward Crystal',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   twitch: 'https://twitch.tv/edwardcrystal',
@@ -1262,6 +1487,7 @@
 {
   id: 66,
   name: 'Little Barra 98',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://youtube.com/@littlebarra98',
@@ -1273,6 +1499,7 @@
 {
   id: 68,
   name: 'Jius Studio',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   twitch: 'https://www.twitch.tv/jiusstudio',
@@ -1284,6 +1511,7 @@
 {
   id: 69,
   name: 'Zoe Nyx',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://youtube.com/@zoenyx00',
@@ -1295,6 +1523,7 @@
 {
   id: 70,
   name: 'Kerço VT',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://www.youtube.com/@kerçoVT',
@@ -1306,6 +1535,7 @@
 {
   id: 71,
   name: 'Abaddon66630',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@abaddon3500?_r=1&_t=ZS-92AI5yB96W7',
@@ -1317,6 +1547,7 @@
 {
   id: 72,
   name: 'DeGy Nix',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://youtube.com/@degynebulosa',
@@ -1330,6 +1561,7 @@
 {
   id: 73,
   name: 'Yunki Pudin Nene',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@_yunki_pudin_nene_',
@@ -1341,6 +1573,7 @@
 {
   id: 74,
   name: 'oLunaAndLia',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   youtube: 'https://www.youtube.com/@oLunaAndLia',
@@ -1352,6 +1585,7 @@
 {
   id: 75,
   name: 'Spartinha The Heelf',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   twitch: 'https://www.twitch.tv/spartinhatheelf',
@@ -1363,6 +1597,7 @@
 {
   id: 76,
   name: 'Fel Musical Wolf',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://youtube.com/@felmusicalwolf',
@@ -1374,6 +1609,7 @@
 {
   id: 77,
   name: 'My Angel Dubs',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@my.angel._.dubs',
@@ -1385,6 +1621,7 @@
 {
   id: 78,
   name: 'Zone YTZ',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: 'https://www.tiktok.com/@zone_ytz',
@@ -1396,6 +1633,7 @@
 {
   id: 79,
   name: 'Moly Mi',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@moly.mi',
@@ -1407,6 +1645,7 @@
 {
   id: 80,
   name: 'Shinokazuki',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   twitch: 'https://www.twitch.tv/shinokazukii',
@@ -1418,6 +1657,7 @@
 {
   id: 81,
   name: 'Eclipse',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   website: 'https://eclipsevtuber.carrd.co',
@@ -1430,6 +1670,7 @@
 {
   id: 82,
   name: 'Reiyukimoto',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@reiyukimoto',
@@ -1441,6 +1682,7 @@
 {
   id: 83,
   name: 'Mireya Mizuhana',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@myravampyofc?_r=1&_t=ZS-93ymFdmYRO8',
@@ -1452,6 +1694,7 @@
 {
   id: 84,
   name: 'Zero Haiten',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@zerohaitenvt',
@@ -1463,6 +1706,7 @@
 {
   id: 85,
   name: 'Bii-Sun Ji e Bonnie Shizuki',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://www.youtube.com/@Bii-SunJieBonnieShizuki',
@@ -1474,6 +1718,7 @@
 {
   id: 86,
   name: 'Spirit Sun Moon',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@spiritsunmoon0',
@@ -1485,6 +1730,7 @@
 {
   id: 87,
   name: 'Black Elfo',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://www.youtube.com/@BlackElfoVtuber',
@@ -1496,6 +1742,7 @@
 {
   id: 88,
   name: 'Space Lilas',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@space_lilas',
@@ -1507,6 +1754,7 @@
 {
   id: 89,
   name: 'Aoki Iara',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@aokiiara',
@@ -1518,6 +1766,7 @@
 {
   id: 90,
   name: 'Blob Alien',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: 'https://www.tiktok.com/@blob_alienofc',
@@ -1529,6 +1778,7 @@
 {
   id: 91,
   name: 'V1r0sking',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@v1r0sking',
@@ -1541,6 +1791,7 @@
 {
   id: 93,
   name: 'Sr. Wilson',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   kwai: 'https://k.kwai.com/u/@sr.wilson453',
@@ -1553,6 +1804,7 @@
 {
   id: 94,
   name: 'Ayano Akira',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@ayanoakira.vtuber',
@@ -1564,6 +1816,7 @@
 {
   id: 95,
   name: 'Teky Elizabeth',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://www.youtube.com/@TEKeEB27',
@@ -1575,6 +1828,7 @@
 {
   id: 96,
   name: 'Bonie Moon',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://www.youtube.com/@BonieMoon',
@@ -1586,6 +1840,7 @@
 {
   id: 97,
   name: 'Ucan Gatito',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@ucan_gatito',
@@ -1597,6 +1852,7 @@
 {
   id: 98,
   name: 'Bardo',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: 'https://www.tiktok.com/@hey_bard?_r=1&_t=ZS-923VkFmdbIm',
@@ -1608,6 +1864,7 @@
 {
   id: 99,
   name: 'Ayla Akin',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   twitch: 'https://www.twitch.tv/AylaAkin',
@@ -1619,6 +1876,7 @@
 {
   id: 100,
   name: 'Takeshii',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://youtube.com/@takeshii9059',
@@ -1630,6 +1888,7 @@
 {
   id: 101,
   name: 'Yukipngtuberr',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   youtube: 'https://www.youtube.com/@vulgo_yuki',
@@ -1641,6 +1900,7 @@
 {
   id: 102,
   name: 'Kiro',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   youtube: 'https://www.youtube.com/@kiro-v3t',
@@ -1652,6 +1912,7 @@
 {
   id: 103,
   name: 'Neko Tina69',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   kick: 'https://kick.com/neko-tina69',
@@ -1664,6 +1925,7 @@
 {
   id: 104,
   name: 'Elizochi',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: 'https://www.tiktok.com/@elizochi',
@@ -1676,6 +1938,7 @@
  
   id: 105,
   name: 'Bella Chan',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: 'https://www.tiktok.com/@bellachanofcl',
@@ -1687,6 +1950,7 @@
 {
   id: 106,
   name: 'Yo Al',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: 'https://www.tiktok.com/@.yo_al',
@@ -1698,6 +1962,7 @@
 {
   id: 107,
   name: 'Aerynnaevor',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@aerynnaevor',
@@ -1709,6 +1974,7 @@
 {
   id: 108,
   name: 'Kaito',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: 'https://www.tiktok.com/@kaitopngtuber',
@@ -1720,6 +1986,7 @@
 {
   id: 109,
   name: 'Yuki Load',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://youtube.com/@yukiloadyt',
@@ -1731,6 +1998,7 @@
 {
   id: 110,
   name: 'LuuxCore',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://youtube.com/@luuxcore',
@@ -1743,6 +2011,7 @@
 {
   id: 111,
   name: 'Yumi Bunny Raiya',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@yumibunnyraiya',
@@ -1754,6 +2023,7 @@
 {
   id: 112,
   name: 'Doutor Aclize',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   youtube: 'https://www.youtube.com/@clisebxtr',
@@ -1765,8 +2035,10 @@
 {
   id: 112,
   name: 'Brinnou',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
+  pais: 'brasil',
   tiktok: 'https://www.tiktok.com/@brinnou356',
   youtube: 'https://www.youtube.com/@Quackzito',
   twitch: '',
@@ -1776,6 +2048,7 @@
 {
   id: 113,
   name: 'Napolimip',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://www.youtube.com/@Napolimip',
@@ -1788,6 +2061,7 @@
 {
   id: 114,
   name: 'Kazusatou',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: 'https://www.tiktok.com/@kazusatou0',
@@ -1799,6 +2073,7 @@
 {
   id: 115,
   name: 'Lily Renard',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://www.youtube.com/@LilyRenardvt',
@@ -1810,6 +2085,7 @@
 {
   id: 116,
   name: 'Yokiro',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   twitch: 'https://www.twitch.tv/yokiro_png',
@@ -1821,6 +2097,7 @@
 {
   id: 117,
   name: 'Kirahoku',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   twitch: 'https://www.twitch.tv/kirahoku',
@@ -1833,6 +2110,7 @@
 {
   id: 119,
   name: 'Everni',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@ever.ni',
@@ -1844,6 +2122,7 @@
 {
   id: 120,
   name: 'Froggolas',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   youtube: 'https://youtube.com/@froggolas',
@@ -1855,6 +2134,7 @@
 {
   id: 121,
   name: 'Jabami199',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://youtube.com/@jabami199',
@@ -1866,6 +2146,7 @@
 {
   id: 122,
   name: 'Moryme',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://www.youtube.com/@morymezi',
@@ -1877,6 +2158,7 @@
 {
   id: 123,
   name: 'Xyoungzin',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   youtube: 'https://www.youtube.com/@xyoungzin',
@@ -1888,6 +2170,7 @@
 {
   id: 124,
   name: 'TeylorIIS',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://youtube.com/@teyloriis',
@@ -1899,6 +2182,7 @@
 {
   id: 125,
   name: 'Hikari',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: 'https://www.tiktok.com/@hikaris.illustrations?_r=1&_t=ZS-9278kTufqTQ',
@@ -1910,6 +2194,7 @@
 {
   id: 126,
   name: 'Morgann Moon',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: 'https://www.tiktok.com/@morgann_moon',
@@ -1921,6 +2206,7 @@
 {
   id: 127,
   name: 'Ssunrie',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   twitch: 'https://twitch.tv/ssunrie',
@@ -1932,6 +2218,7 @@
 {
   id: 128,
   name: 'Beca Ryuuji',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   twitch: 'https://www.twitch.tv/beca_ryuuji',
@@ -1944,6 +2231,7 @@
 {
   id: 129,
   name: 'King Pato',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: 'https://www.tiktok.com/@kingpato47',
@@ -1955,6 +2243,7 @@
 {
   id: 130,
   name: 'Yagura_sharkyo',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://youtube.com/@yorushin_vtube?si=vkJfUSRMCBSieVhO',
@@ -1966,6 +2255,7 @@
 {
   id: 131,
   name: 'Sra. Yona',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://youtube.com/@sra.yona2025',
@@ -1977,6 +2267,7 @@
 {
   id: 132,
   name: 'Polar the Fox',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://youtube.com/@polarthefox',
@@ -1988,6 +2279,7 @@
 {
   id: 133,
   name: 'Tio Hike',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@tiohike_yt',
@@ -2000,6 +2292,7 @@
 {
   id: 134,
   name: 'Gakalo',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@gakalo.br',
@@ -2011,6 +2304,7 @@
 {
   id: 135,
   name: 'Ocelot Girl',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@ocelotgirlvtuber',
@@ -2022,6 +2316,7 @@
 {
   id: 136,
   name: 'Star',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@estrella1223772',
@@ -2033,6 +2328,7 @@
 {
   id: 137,
   name: 'Jvtaurinos',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://www.youtube.com/@JvtauPlayPlays-ki2kp',
@@ -2044,6 +2340,7 @@
 {
   id: 138,
   name: 'Jasmim Raposa',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://www.youtube.com/@jasmim_raposa',
@@ -2055,6 +2352,7 @@
 {
   id: 139,
   name: 'Soy Yuna',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   youtube: 'https://youtube.com/@SoyYunaPNG',
@@ -2066,6 +2364,7 @@
 {
   id: 141,
   name: 'Mariya Hikari',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   twitch: 'https://twitch.tv/hikari_mariya',
@@ -2078,6 +2377,7 @@
 {
   id: 142,
   name: 'Bonnie Usagi',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://youtube.com/@bonnieusagiii',
@@ -2089,6 +2389,7 @@
 {
   id: 143,
   name: 'Ksano',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   twitter: 'https://x.com/Ksan0o',
@@ -2101,6 +2402,7 @@
 {
   id: 144,
   name: 'Lyza',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   twitter: 'https://x.com/lyzaxzinha',
@@ -2113,6 +2415,7 @@
 {
   id: 145,
   name: 'Aylinlah',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@aylinlah',
@@ -2124,6 +2427,7 @@
 {
   id: 146,
   name: 'Scarlett Mimi',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@scarlett_mimi_',
@@ -2135,6 +2439,7 @@
 {
   id: 147,
   name: 'Dep',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://youtube.com/@dep__x-x',
@@ -2146,6 +2451,7 @@
 {
   id: 148,
   name: 'Catdokokoro',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   kick: 'https://kick.com/catdokokoro',
@@ -2158,6 +2464,7 @@
 {
   id: 149,
   name: 'Naomi Suzuki',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber PNG',
   tiktok: 'https://www.tiktok.com/@naosuzuki0469',
@@ -2169,6 +2476,7 @@
 {
   id: 150,
   name: 'Duduh',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://youtube.com/@duduhvtuber',
@@ -2182,6 +2490,7 @@
 {
   id: 151,
   name: 'Ryoen Kitsu',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://www.youtube.com/@RyoenKitsu',
@@ -2193,6 +2502,7 @@
 {
   id: 152,
   name: 'Imstarbit',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   twitch: 'https://www.twitch.tv/imstarbit',
@@ -2204,6 +2514,7 @@
 {
   id: 153,
   name: 'Koralizss',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber (Dragão protetora)',
   youtube: 'https://youtube.com/@koralizss',
@@ -2215,6 +2526,7 @@
 {
   id: 154,
   name: 'Yuriyuiyu',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   twitch: 'https://www.twitch.tv/yuyuriyuiyu',
@@ -2227,6 +2539,7 @@
 {
   id: 155,
   name: 'DragonX',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@dragonxvtuber',
@@ -2239,6 +2552,7 @@
 {
   id: 156,
   name: 'Mozy soninho',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber BR (VRChat & Jogos)',
   tiktok: 'https://www.tiktok.com/@mozy_soninho',
@@ -2250,6 +2564,7 @@
 {
   id: 157,
   name: 'Marjory VTuber',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber Neko Maid (VRChat & Fliperama)',
   tiktok: 'https://www.tiktok.com/@marjoryvtuber',
@@ -2262,6 +2577,7 @@
 {
   id: 158,
   name: 'Whity Foxy',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber Girl Gamer',
   tiktok: 'https://www.tiktok.com/@whityfoxy',
@@ -2273,6 +2589,7 @@
 {
   id: 159,
   name: 'Henrixx',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber (Terraria & Jogos)',
   tiktok: 'https://www.tiktok.com/@henrixx007',
@@ -2284,6 +2601,7 @@
 {
   id: 160,
   name: 'Kaito Shinjitsu',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber (Shinjitsu VT)',
   youtube: 'https://www.youtube.com/@Kaito_Sjts-VT',
@@ -2295,6 +2613,7 @@
 {
   id: 161,
   name: 'WTF Tsukky',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@wtf__tsukky',
@@ -2306,6 +2625,7 @@
 {
   id: 162,
   name: 'Nikpoa Degurrechaf',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber (Supere seus limites!)',
   tiktok: 'https://www.tiktok.com/@nikpoa_1999',
@@ -2318,6 +2638,7 @@
 {
   id: 163,
   name: 'Magic Bubbles',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://www.youtube.com/@MagicbubblesVtuber',
@@ -2329,6 +2650,7 @@
 {
   id: 164,
   name: 'Carneirinho',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber (Carneirinho SX)',
   tiktok: 'https://www.tiktok.com/@carneirinho_sx',
@@ -2340,6 +2662,7 @@
 {
   id: 165,
   name: 'Lycan Tsuchida',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber Lobo (MimiTubers)',
   youtube: 'https://youtube.com/@lycantsuchida',
@@ -2351,6 +2674,7 @@
 {
   id: 166,
   name: 'Mekito Nova',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber (Desafios & Jogos)',
   youtube: 'https://www.youtube.com/@MekitoNova',
@@ -2363,6 +2687,7 @@
 {
   id: 167,
   name: 'Amber Apple',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@amberapplevtuber',
@@ -2374,6 +2699,7 @@
 {
   id: 168,
   name: 'Ariel VTuber',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@arielvtuberr_',
@@ -2385,6 +2711,7 @@
 {
   id: 169,
   name: 'Las Niki',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber Alien NB (RPGs & Sobrevivência)',
   twitch: 'https://www.twitch.tv/las_niki',
@@ -2396,6 +2723,7 @@
 {
   id: 170,
   name: 'Harumi Yamamoto',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber Kawaii 🌸🐰',
   tiktok: 'https://www.tiktok.com/@harumi_yamamoto022',
@@ -2408,6 +2736,7 @@
 {
   id: 171,
   name: 'Fujitora',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@fujitoraoficial',
@@ -2419,6 +2748,7 @@
 {
   id: 172,
   name: 'Mary Moon',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber (Mary Moon Cos)',
   tiktok: 'https://www.tiktok.com/@marymooncos',
@@ -2430,6 +2760,7 @@
 {
   id: 173,
   name: 'Lelex0z',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://youtube.com/@lelex0z',
@@ -2441,6 +2772,7 @@
 {
   id: 174,
   name: 'Rellena Lior',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://youtube.com/@rellenalior',
@@ -2452,6 +2784,7 @@
 {
   id: 175,
   name: 'Rafinha VTuber',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://youtube.com/@rafinhavtuber',
@@ -2463,6 +2796,7 @@
 {
   id: 176,
   name: 'Agathagrawas',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber (Natalina 🎄)',
   tiktok: 'https://www.tiktok.com/@agathagrawas73?_r=1&_t=ZS-92UvVSLgT3a',
@@ -2475,6 +2809,7 @@
 {
   id: 177,
   name: 'Moxxye Nyxen',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@moxxye_nyxen',
@@ -2486,6 +2821,7 @@
 {
   id: 178,
   name: 'Spirall Nick',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@spirall_nick',
@@ -2497,6 +2833,7 @@
 {
   id: 179,
   name: 'Doutor Operário',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@doutor_operario',
@@ -2508,6 +2845,7 @@
 {
   id: 180,
   name: 'Yunah Sukizinha',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@yunahsukizinha',
@@ -2519,6 +2857,7 @@
 {
   id: 181,
   name: 'Julian Shin',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://youtube.com/@julian-shin',
@@ -2530,6 +2869,7 @@
 {
   id: 182,
   name: 'Yuizinhaaaa',
+  pais: 'brasil',
   founder: false,
   description: 'PNGTuber',
   youtube: 'https://youtube.com/@yuizinhaaaa_pngtuber',
@@ -2541,6 +2881,7 @@
 {
   id: 183,
   name: 'Benjamin VTuber',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber (Benjav)',
   youtube: 'https://youtube.com/@benjav-tuber',
@@ -2552,6 +2893,7 @@
 {
   id: 184,
   name: 'Oieusouoalfar',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   twitch: 'https://www.twitch.tv/oieusouoalfar',
@@ -2563,6 +2905,7 @@
 {
   id: 185,
   name: 'Nyx Seravelle',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://www.youtube.com/@NyxSeravelle',
@@ -2574,6 +2917,7 @@
 {
   id: 186,
   name: 'Mochizinhaaa',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://www.youtube.com/@mochizinhaaa',
@@ -2585,6 +2929,7 @@
 {
   id: 187,
   name: 'Pixan',
+  pais: 'brasil',
   founder: false,
   description: 'PNGTuber',
   youtube: 'https://www.youtube.com/@pixan-h8m',
@@ -2598,6 +2943,7 @@
 {
   id: 189,
   name: 'Outlycan Dubs',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://youtube.com/@outlycandubs',
@@ -2611,6 +2957,7 @@
 {
   id: 190,
   name: 'Zuri Marzyciel',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@zuri.marzyciel',
@@ -2622,6 +2969,7 @@
 {
   id: 191,
   name: 'Mega BR',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@megabr66',
@@ -2633,6 +2981,7 @@
 {
   id: 192,
   name: 'Yumi',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://www.youtube.com/@xXYumi_.x',
@@ -2644,6 +2993,7 @@
 {
   id: 193,
   name: 'Pinkiie Fofis',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@pinkiie_fofis',
@@ -2656,6 +3006,7 @@
 {
   id: 194,
   name: 'Capitão Official',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://youtube.com/@capitaopofficial_12',
@@ -2668,6 +3019,7 @@
 {
   id: 195,
   name: 'Luka Onn',
+  pais: 'brasil',
   founder: false,
   description: 'VTuber',
   twitch: 'https://www.twitch.tv/luka_onn',
@@ -2679,7 +3031,8 @@
 
 {
   id: 196,
-  name: 'Nico',
+  name: 'Nico', 
+  pais: 'brasil',
   founder: false,
   description: 'PNGTuber',
   tiktok: 'https://www.tiktok.com/@nico_312h1',
@@ -2692,6 +3045,7 @@
 {
   id: 197,
   name: 'Mimia',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@mimia_022',
@@ -2704,6 +3058,7 @@
 {
   id: 198,
   name: 'Rodi Lives',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber (🐧 Pinguim)',
   tiktok: 'https://www.tiktok.com/@livesdorodi',
@@ -2716,6 +3071,7 @@
 {
   id: 199,
   name: 'Astra Rose',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber (Mariposa dos Sonhos)',
   tiktok: 'https://www.tiktok.com/@astra.roseofc',
@@ -2730,6 +3086,7 @@
 {
   id: 200,
   name: 'Mo Talks',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://youtube.com/@motalks-w3q2h',
@@ -2742,6 +3099,7 @@
 {
   id: 201,
   name: 'Zorthak',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://www.youtube.com/@Zorthak_yt',
@@ -2754,6 +3112,7 @@
 {
   id: 202,
   name: 'Abdamath ou MH',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@abdamath_ou_mh',
@@ -2766,6 +3125,7 @@
 {
   id: 203,
   name: 'Rubiy',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@rubiy_dubs_oficial',
@@ -2778,6 +3138,7 @@
 {
   id: 204,
   name: 'Yujin Aisu Lynne',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber ❄️',
   tiktok: 'https://www.tiktok.com/@yujin.aisu.lynne',
@@ -2790,6 +3151,7 @@
 {
   id: 205,
   name: 'Rique Mask',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber (ele/dele)',
   youtube: 'https://youtube.com/@riquemask',
@@ -2802,6 +3164,7 @@
 {
   id: 206,
   name: 'Yuki27ll',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@yuki27ll',
@@ -2814,6 +3177,7 @@
 {
   id: 207,
   name: 'Fabi RSL',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber (Foxdraw)',
   tiktok: 'https://www.tiktok.com/@faby_rslx?_r=1&_t=ZS-93hF8pQJfLl',
@@ -2826,6 +3190,7 @@
 {
   id: 208,
   name: 'Suzuya 001 DW',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber (Caçador de Recompensas)',
   tiktok: 'https://www.tiktok.com/@suzuya_001_dw',
@@ -2838,6 +3203,7 @@
 {
   id: 209,
   name: 'Soulsluky',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@soulsluky',
@@ -2850,6 +3216,7 @@
 {
   id: 210,
   name: '★feoblue★',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber (cantor e dublador)',
   tiktok: 'https://www.tiktok.com/@feobluevtuber',
@@ -2862,6 +3229,7 @@
 {
   id: 211,
   name: 'Kirai Murasaki',
+   pais: 'brasil',
   founder: false,
   description: 'VTuberBr (Kitsune Primordial do Ártico)',
   tiktok: 'https://www.tiktok.com/@kiraimurasaki',
@@ -2874,6 +3242,7 @@
 {
   id: 212,
   name: 'Krumy',
+   pais: 'brasil',
   founder: false,
   description: 'PNG VTuber',
   tiktok: 'https://www.tiktok.com/@krumy666',
@@ -2886,6 +3255,7 @@
 {
   id: 213,
   name: 'Mina Meiyo',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@mina_meiyo',
@@ -2898,6 +3268,7 @@
 {
   id: 214,
   name: 'Crocranti',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber (Crocodilo + Tebaldi)',
   tiktok: 'https://www.tiktok.com/@crocrantii',
@@ -2910,6 +3281,7 @@
 {
   id: 215,
   name: 'Yuki Akemi',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@yukiakemivtu',
@@ -2922,6 +3294,7 @@
 {
   id: 216,
   name: 'Razor Shark',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber (Tubarão)',
   tiktok: 'https://www.tiktok.com/@razorsharkvtuber',
@@ -2934,6 +3307,7 @@
 {
   id: 217,
   name: 'Hinata Starlight',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber (Mari Fujiki)',
   tiktok: 'https://www.tiktok.com/@hinatastarlight',
@@ -2946,6 +3320,7 @@
 {
   id: 218,
   name: 'Karma Carmesim',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber (Vessel de Sangue)',
   tiktok: 'https://www.tiktok.com/@karmacarmesim',
@@ -2958,6 +3333,7 @@
 {
   id: 219,
   name: 'Chibi Mochii',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber (Chibi Mochi)',
   tiktok: 'https://www.tiktok.com/@achocolatado_gostoso',
@@ -2970,6 +3346,7 @@
 {
   id: 220,
   name: 'A. Zanan',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber Png',
   tiktok: 'https://www.tiktok.com/@a.zanan',
@@ -2982,6 +3359,7 @@
 {
   id: 221,
   name: 'SunshineeTsK',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber (Guardiã das almas infortunadas)',
   youtube: 'https://youtube.com/@sunshineetsk',
@@ -2994,6 +3372,7 @@
 {
   id: 222,
   name: 'Umataldezyara',
+   pais: 'brasil',
   founder: false,
   description: 'PNG VTuber',
   tiktok: 'https://www.tiktok.com/@umataldezyara',
@@ -3006,6 +3385,7 @@
 {
   id: 223,
   name: 'Kenjirataque',
+   pais: 'brasil',
   founder: false,
   description: 'PNG VTuber (Rataquinho)',
   tiktok: 'https://www.tiktok.com/@kenjirataque',
@@ -3018,6 +3398,7 @@
 {
   id: 224,
   name: 'Fame',
+   pais: 'brasil',
   founder: false,
   description: 'PNG VTuber',
   youtube: 'https://youtube.com/@fame15658',
@@ -3030,6 +3411,7 @@
 {
   id: 225,
   name: 'Juliapolvo',
+   pais: 'brasil',
   founder: false,
   description: 'PNG VTuber',
   tiktok: 'https://www.tiktok.com/@juliapolvo',
@@ -3042,6 +3424,7 @@
 {
   id: 226,
   name: 'Bela Brigadeiro',
+   pais: 'brasil',
   founder: false,
   description: 'PNG VTuber',
   tiktok: 'https://www.tiktok.com/@.belabrigadeiro',
@@ -3054,6 +3437,7 @@
 {
   id: 227,
   name: 'The Multiversal Studio',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber',
   youtube: 'https://youtube.com/@the_multiversal_studio',
@@ -3066,6 +3450,7 @@
 {
   id: 228,
   name: 'Luz Theferis',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@luz_theferis',
@@ -3078,6 +3463,7 @@
 {
   id: 229,
   name: 'Haoru',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber',
   tiktok: 'https://www.tiktok.com/@haoruofc',
@@ -3090,6 +3476,7 @@
 {
   id: 230,
   name: 'Tag',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber Png',
   tiktok: 'https://www.tiktok.com/@_pvdatag',
@@ -3102,6 +3489,7 @@
 {
   id: 231,
   name: 'Mistri',
+   pais: 'brasil',
   founder: false,
   description: 'VTuber Png',
   tiktok: 'https://www.tiktok.com/@mistri.523?_r=1&_t=ZS-91puRxW0oiu',
@@ -3114,6 +3502,7 @@
 {
 id: 232,
 name: 'Lekozito',
+ pais: 'brasil',
 founder: false,
 description: 'Vtuber Png',
 tiktok: 'https://www.tiktok.com/@lekozito',
@@ -3126,6 +3515,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 233,
   "name": "Vinix",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber",
   "tiktok": "https://www.tiktok.com/@vinixvtuber",
@@ -3138,6 +3528,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 234,
   "name": "Akashi Senpai Ofc",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber",
   "tiktok": "https://www.tiktok.com/@akashisenpaio",
@@ -3150,6 +3541,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 235,
   "name": "Dratisu",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber",
   "tiktok": "https://www.tiktok.com/@dratisu",
@@ -3162,6 +3554,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 236,
   "name": "Fellynboo",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber",
   "tiktok": "https://www.tiktok.com/@fellynboo",
@@ -3174,6 +3567,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 237,
   "name": "TsubaGhost",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber ",
   "tiktok": "https://www.tiktok.com/@tsubaghost",
@@ -3186,6 +3580,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 238,
   "name": "Henry Simon 07",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber",
   "tiktok": "https://www.tiktok.com/@henry_simon_07",
@@ -3197,7 +3592,8 @@ avatar: 'lekozito_avatar.jpeg'
 
 {
   "id": 239,
-  "name": "sakkurai",
+  "name": "sakkurai", 
+  pais: 'brasil',
   "founder": false,
   "description": "VTuber",
   "tiktok": "https://www.tiktok.com/@sakkuraisama",
@@ -3210,6 +3606,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 240,
   "name": "Lumi Estrela",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber Png",
   "tiktok": "https://www.tiktok.com/@lumi.star001",
@@ -3222,6 +3619,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 241,
   "name": "Jeste o Bobo",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber PNG",
   "tiktok": "https://www.tiktok.com/@jeste.o.bobo",
@@ -3234,6 +3632,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 242,
   "name": "Loguiva",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber",
   "tiktok": "https://www.tiktok.com/@loguiva",
@@ -3246,6 +3645,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 243,
   "name": "Gin Kami",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber PNG",
   "tiktok": "https://www.tiktok.com/@gin_kami",
@@ -3258,6 +3658,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 244,
   "name": "Fenne Foxzzx",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber",
   "tiktok": "https://www.tiktok.com/@fenefoxzz",
@@ -3270,6 +3671,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 245,
   "name": "Ellen ",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber",
   "tiktok": "",
@@ -3283,6 +3685,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 246,
   "name": "Amo VTubers",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber",
   "tiktok": "https://www.tiktok.com/@amovtubers",
@@ -3295,6 +3698,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 247,
   "name": "Estephanaria",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber PNG",
   "tiktok": "https://www.tiktok.com/@estephanaria",
@@ -3307,6 +3711,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 248,
   "name": "Bluelyn",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber",
   "tiktok": "https://www.tiktok.com/@darlingbluelyn?_r=1&_t=ZS-93XLWVE8pKa",
@@ -3319,6 +3724,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 249,
   "name": "Leruyon",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber PNG",
   "tiktok": "https://www.tiktok.com/@leruyon",
@@ -3331,6 +3737,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 250,
   "name": "JackSilver",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber PNG",
   "tiktok": "https://www.tiktok.com/@jack_silver2",
@@ -3343,6 +3750,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 251,
   "name": "Nyx Yami",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber",
   "tiktok": "https://www.tiktok.com/@nyx_yami4",
@@ -3355,6 +3763,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 252,
   "name": "Senhor Batatinhar",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber PNG",
   "tiktok": "",
@@ -3367,6 +3776,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 253,
   "name": "Kilili",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber",
   "tiktok": "https://www.tiktok.com/@kilili_vt",
@@ -3379,6 +3789,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 253,
   "name": "LuniBlader",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber PNG",
   "tiktok": "https://www.tiktok.com/@luniblader",
@@ -3391,6 +3802,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 254,
   "name": "Lanci VTuber",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber ",
   "tiktok": "https://www.tiktok.com/@lancivtuber",
@@ -3403,6 +3815,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 255,
   "name": "Maffimx",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber PNG",
   "tiktok": "https://www.tiktok.com/@user.828731",
@@ -3415,6 +3828,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 256,
   "name": "Katanziel Kozunora",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber PNG",
   "tiktok": "https://www.tiktok.com/@katanziel_kozunora",
@@ -3427,6 +3841,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 257,
   "name": "Zara",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber PNG",
   "tiktok": "https://www.tiktok.com/@zaravtuber7",
@@ -3439,6 +3854,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 258,
   "name": "Ikari",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber PNG",
   "tiktok": "https://www.tiktok.com/@canaldaikari",
@@ -3451,6 +3867,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 259,
   "name": "Safira",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber PNG",
   "tiktok": "https://www.tiktok.com/@dub_hiir",
@@ -3463,6 +3880,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 260,
   "name": "Hayato Takahashi",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber ",
   "tiktok": "https://www.tiktok.com/@ultimo_guardiao.ofc",
@@ -3475,6 +3893,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 261,
   "name": "Wyk Beatriz",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber ",
   "tiktok": "https://www.tiktok.com/@wykbeatriz_ofc?_r=1&_t=ZS-93gDLBtfKsf",
@@ -3487,6 +3906,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 262,
   "name": "Zack Angel",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber PNG",
   "tiktok": "https://www.tiktok.com/@zackangel1k",
@@ -3499,6 +3919,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 263,
   "name": "Aqua Hino",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber",
   "tiktok": "https://www.tiktok.com/@aquahino_",
@@ -3511,6 +3932,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 264,
   "name": "Sans",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber",
   "tiktok": "https://www.tiktok.com/@didi56269",
@@ -3523,6 +3945,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 265,
   "name": "Jade McClara",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber ",
   "tiktok": "https://www.tiktok.com/@jademclara",
@@ -3535,6 +3958,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 266,
   "name": "Heitor Gabriel",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber ",
   "tiktok": "https://www.tiktok.com/@heitor.gabriel.no",
@@ -3547,6 +3971,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 267,
   "name": "Sugary Duck",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber ",
   "tiktok": "https://www.tiktok.com/@sugaryduck.oficial",
@@ -3559,6 +3984,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 268,
   "name": "Chester Desenhista",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber PNG",
   "tiktok": "https://www.tiktok.com/@chester_desenhista",
@@ -3571,6 +3997,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 269,
   "name": "Haiku Teddy",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber PNG",
   "tiktok": "",
@@ -3583,6 +4010,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 270,
   "name": "Sammye",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber PNG",
   "tiktok": "https://www.tiktok.com/@sammyetoficial",
@@ -3595,6 +4023,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 271,
   "name": "Dandy",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber PNG",
   "tiktok": "https://www.tiktok.com/@dandy_uwu09",
@@ -3607,6 +4036,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 272,
   "name": " Husky",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber PNG",
   "tiktok": "https://www.tiktok.com/@eohuzk",
@@ -3619,6 +4049,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 273,
   "name": "Feneko Ammy",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber",
   "tiktok": "https://www.tiktok.com/@kyorinastraea?_r=1&_t=ZS-93mzRTiDp9Y",
@@ -3631,6 +4062,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 274,
   "name": "Bleach Pad",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber ",
   "tiktok": "https://www.tiktok.com/@bleach_pad",
@@ -3643,6 +4075,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 275,
   "name": "ShadowNyxV",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber",
   "tiktok": "https://www.tiktok.com/@shadownyxv",
@@ -3655,6 +4088,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 275,
   "name": "Katthy Bunny",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber ",
   "tiktok": "https://www.tiktok.com/@katthy.bunny",
@@ -3667,6 +4101,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 276,
   "name": "Mizuky Cats",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber ",
   "tiktok": "https://www.tiktok.com/@mizukyhhj_",
@@ -3679,6 +4114,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 277,
   "name": "Eclipse Rax",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber ",
   "tiktok": "https://www.tiktok.com/@eclipserax4",
@@ -3691,6 +4127,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 278,
   "name": "Planeta Luesy",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber PNG",
   "tiktok": "https://www.tiktok.com/@planeta.luesy",
@@ -3703,6 +4140,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 279,
   "name": "Diy Zas",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber PNG",
   "tiktok": "https://www.tiktok.com/@diy.zas",
@@ -3715,6 +4153,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 280,
   "name": "Akira Cookie Sempai",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber PNG",
   "tiktok": "",
@@ -3727,6 +4166,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 281,
   "name": "Fy Dubys",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber PNG",
   "tiktok": "https://www.tiktok.com/@dubysfy",
@@ -3739,6 +4179,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 282,
   "name": "Eliot",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber PNG",
   "tiktok": "https://www.tiktok.com/@ellay.vtuber",
@@ -3751,6 +4192,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 283,
   "name": "Turma da Kiki",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber PNG",
   "tiktok": "https://www.tiktok.com/@turma_da.kiki",
@@ -3763,6 +4205,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 285,
   "name": "Leninha Fofa",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber ",
   "tiktok": "https://www.tiktok.com/@helenafofinha74",
@@ -3775,6 +4218,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 286,
   "name": "Sonhos de Cristal",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber ",
   "tiktok": "https://www.tiktok.com/@sonhosdecristal222",
@@ -3787,6 +4231,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 287,
   "name": "Zhilak",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber PNG",
   "tiktok": "https://www.tiktok.com/@zhilakruna",
@@ -3799,6 +4244,7 @@ avatar: 'lekozito_avatar.jpeg'
 {
   "id": 288,
   "name": "Japa Moon",
+   pais: 'brasil',
   "founder": false,
   "description": "VTuber PNG",
   "tiktok": "",
@@ -3807,146 +4253,123 @@ avatar: 'lekozito_avatar.jpeg'
   "kick": "",
   "avatar": "japamoon_avatar.jpeg"
 },
+{
+  "id": 289,
+  "name": "ayanodrk_six",
+  pais: 'brasil',
+  "founder": false,
+  "description": "VTuber PNG",
+  "tiktok": "https://www.tiktok.com/@ayanodrk_six?_r=1&_t=ZS-94J1IoS2k3p",
+  "youtube": "",
+  "twitch": "",
+  "kick": "",
+  "avatar": "ayanodrk_six.jpeg"
+},
+
+{
+  "id": 290,
+  "name": "Wost",
+ pais: 'brasil',
+  "founder": false,
+  "description": "VTuber PNG",
+  "tiktok": "https://www.tiktok.com/@wost_ofc",
+  "youtube": "https://www.youtube.com/@wost_ofc",
+  "twitch": "https://www.twitch.tv/wost_0",
+  "kick": "",
+  "avatar": "wost_avatar.jpeg"
+}
 
 
     ];
 
-    let currentTabCards = {};
-
-    // Função para atualizar o contador total de VTubers
-    function updateTotalVTubers() {
-      const total = vTubers.length;
-      const totalElement = document.getElementById('total-vtubers');
-      totalElement.textContent = `${total} VTubers na Biblioteca`;
+    function carregarPlataforma(tabName, platform, pais, platformName) {
+      const grid = document.getElementById(`vtuber-grid-${platform}`);
+      const searchLetras = document.getElementById(`search-letras-${platform}`);
+      const searchResult = document.getElementById(`search-result-${platform}`);
+      const buttons = document.querySelectorAll(`#${tabName} .pais-btn`);
+      
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      
+      grid.classList.add('mostrar');
+      searchLetras.classList.add('mostrar');
+      searchResult.classList.add('mostrar');
+      
+      grid.innerHTML = '';
+      const filtrados = vTubers.filter(v => v.pais === pais && v[platform]);
+      
+      filtrados.forEach(vtuber => {
+        const card = document.createElement('div');
+        card.className = 'vtuber-card';
+        card.innerHTML = `
+          <img src="${vtuber.avatar}" alt="${vtuber.name}" class="vtuber-avatar" />
+          <div class="vtuber-name">${vtuber.name}${vtuber.founder ? ' ⭐ Fundador' : ''}</div>
+          <div class="vtuber-description">${vtuber.description}</div>
+          <div class="social-links">
+            <a href="${vtuber[platform]}" target="_blank" rel="noopener noreferrer">${platformName}</a>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+      
+      searchResult.textContent = `${filtrados.length} VTubers ${pais === 'brasil' ? '🇧🇷 brasileiros' : '🇵🇹 portugueses'}`;
+      createLetrasButtons(`search-letras-${platform}`, `vtuber-grid-${platform}`, platform);
     }
 
     function createLetrasButtons(containerId, gridId, platform) {
       const container = document.getElementById(containerId);
       container.innerHTML = '';
       
-      // Botão TODAS
       const todasBtn = document.createElement('button');
       todasBtn.className = 'letra-btn todas active';
       todasBtn.textContent = 'TODAS';
-      todasBtn.onclick = function() { filterByLetter(gridId, platform, ''); };
+      todasBtn.onclick = () => filterByLetter(gridId, '');
       container.appendChild(todasBtn);
-
-      // Botões A-Z
-      const letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-      letras.forEach(letra => {
+      
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').forEach(letra => {
         const btn = document.createElement('button');
         btn.className = 'letra-btn';
         btn.textContent = letra;
-        btn.onclick = function() { filterByLetter(gridId, platform, letra); };
+        btn.onclick = () => filterByLetter(gridId, letra);
         container.appendChild(btn);
       });
     }
 
-    function filterByLetter(gridId, platform, letra) {
+    function filterByLetter(gridId, letra) {
       const grid = document.getElementById(gridId);
       const cards = grid.querySelectorAll('.vtuber-card');
       const buttons = grid.parentElement.querySelectorAll('.letra-btn');
       
-      // Remove active dos botões
       buttons.forEach(btn => btn.classList.remove('active'));
       event.target.classList.add('active');
-
-      let visibleCount = 0;
+      
+      let count = 0;
       cards.forEach(card => {
-        const nome = card.querySelector('.vtuber-name').textContent.trim()[0].toUpperCase();
+        const nome = card.querySelector('.vtuber-name').textContent[0].toUpperCase();
         if (letra === '' || nome === letra) {
           card.style.display = 'flex';
-          visibleCount++;
+          count++;
         } else {
           card.style.display = 'none';
         }
       });
-
-      // Atualiza contador
-      const resultEl = document.getElementById(`search-result-${platform}`);
-      if (letra === '') {
-        resultEl.textContent = `Mostrando todos (${cards.length})`;
-      } else {
-        resultEl.textContent = `Letra "${letra}": ${visibleCount} encontrados`;
-      }
-    }
-
-    function createVTuberCard(vtuber, platform) {
-      const card = document.createElement('div');
-      card.className = 'vtuber-card';
-      const link = vtuber[platform];
       
-      if (link) {
-        const platformName = platform.charAt(0).toUpperCase() + platform.slice(1);
-        card.innerHTML = `
-          <img src="${vtuber.avatar}" alt="${vtuber.name}" class="vtuber-avatar" />
-          <div class="vtuber-name">${vtuber.name}${vtuber.founder ? ' ⭐ Fundador' : ''}</div>
-          <div class="vtuber-description">${vtuber.description}</div>
-          <div class="social-links">
-            <a href="${link}" target="_blank" rel="noopener noreferrer">${platformName}</a>
-          </div>
-        `;
-      }
-      return card;
-    }
-
-    function loadTabContent(tabName) {
-      const plataforma = tabName.toLowerCase();
-      const gridId = `vtuber-grid-${plataforma}`;
-      const searchId = `search-letras-${plataforma}`;
-      
-      // Cria botões se não existem
-      if (!document.getElementById(searchId).hasChildNodes()) {
-        createLetrasButtons(searchId, gridId, plataforma);
-      }
-      
-      // Cria cards se não existem
-      if (!currentTabCards[plataforma]) {
-        const grid = document.getElementById(gridId);
-        const filtered = vTubers.filter(v => v[plataforma]);
-        
-        filtered.forEach(vtuber => {
-          grid.appendChild(createVTuberCard(vtuber, plataforma));
-        });
-        
-        currentTabCards[plataforma] = true;
-      }
-      
-      // Ativa TODAS
-      setTimeout(() => {
-        const todasBtn = document.querySelector(`#${searchId} .todas`);
-        if (todasBtn) todasBtn.click();
-      }, 100);
+      const platform = gridId.split('-')[2];
+      document.getElementById(`search-result-${platform}`).textContent = 
+        letra === '' ? `Mostrando todos (${count})` : `Letra "${letra}": ${count}`;
     }
 
     function openTab(evt, tabName) {
-      // Fecha todas as abas
-      const tabcontents = document.getElementsByClassName("tab-content");
-      for (let i = 0; i < tabcontents.length; i++) {
-        tabcontents[i].classList.remove('active');
-      }
-      
-      const tablinks = document.getElementsByClassName("tab-btn");
-      for (let i = 0; i < tablinks.length; i++) {
-        tablinks[i].classList.remove('active');
-      }
-      
-      // Abre aba clicada
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
       document.getElementById(tabName).classList.add('active');
       evt.currentTarget.classList.add('active');
-      
-      // Carrega conteúdo das abas de plataforma
-      if (['TikTok', 'YouTube', 'Twitch', 'kick'].includes(tabName)) {
-        loadTabContent(tabName);
-      }
     }
 
-    // Inicialização
     window.addEventListener('load', () => {
       setTimeout(() => {
         document.getElementById('loading-screen').style.display = 'none';
-        // Atualiza o contador total de VTubers após o carregamento
-        updateTotalVTubers();
+        document.getElementById('total-vtubers').textContent = `${vTubers.length} VTubers na Biblioteca`;
       }, 2400);
     });
   </script>
