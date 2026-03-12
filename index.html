@@ -148,7 +148,10 @@
     }
     .pais-btn.brasil { border: 3px solid #00ff88; }
     .pais-btn.portugal { border: 3px solid #1e90ff; }
-    
+    .pais-btn.inglaterra { border: 3px solid #012169; /* Azul UK */
+}
+
+
     /* Search */
     .search-container {
       background: #fff;
@@ -637,6 +640,10 @@
             <img src="portugal_flag.jpg" alt="🇵🇹 Portugal" class="bandera" />
             Portugal
           </button>
+           <button class="pais-btn inglaterra" onclick="carregarPlataforma('TikTok', 'tiktok', 'inglaterra', 'TikTok')">
+            <img src="Inglaterra.jpg" alt="🇬🇧 Inglaterra" class="bandera" />
+            Inglaterra
+           </button>
         </div>
       </div>
       <div class="search-letras" id="search-letras-tiktok"></div>
@@ -658,6 +665,10 @@
           <button class="pais-btn portugal" onclick="carregarPlataforma('YouTube', 'youtube', 'portugal', 'YouTube')">
             <img src="portugal_flag.jpg" alt="🇵🇹 Portugal" class="bandera" />
             Portugal
+          </button>
+            <button class="pais-btn inglaterra" onclick="carregarPlataforma('YouTube', 'youtube', 'inglaterra', 'YouTube')">
+            <img src="Inglaterra.jpg" alt="🇬🇧 Inglaterra" class="bandera" />
+           Inglaterra
           </button>
         </div>
       </div>
@@ -681,6 +692,10 @@
             <img src="portugal_flag.jpg" alt="🇵🇹 Portugal" class="bandera" />
             Portugal
           </button>
+            <button class="pais-btn inglaterra" onclick="carregarPlataforma('Twitch', 'twitch', 'inglaterra', 'Twitch')">
+            <img src="Inglaterra.jpg" alt="🇬🇧 Inglaterra" class="bandera" />
+           Inglaterra
+          </button>
         </div>
       </div>
       <div class="search-letras" id="search-letras-twitch"></div>
@@ -689,27 +704,32 @@
     </div>
   </div>
 
-  <!-- KICK ✅ COM IMAGENS DE BANDEIRA -->
-  <div id="kick" class="tab-content">
-    <div class="search-container">
-      <div class="pais-selector">
-        <h3>🇧🇷🇵🇹 Escolha seu País</h3>
-        <div class="pais-buttons">
-          <button class="pais-btn brasil" onclick="carregarPlataforma('kick', 'kick', 'brasil', 'Kick')">
-            <img src="brasil_flag.jpg" alt="🇧🇷 Brasil" class="bandera" />
-            Brasil
+  <!-- KICK ✅ 3 PAÍSES LIMPO -->
+<div id="kick" class="tab-content">
+  <div class="search-container">
+    <div class="pais-selector">
+      <h3>🇧🇷🇵🇹🇬🇧 Escolha seu País</h3>
+      <div class="pais-buttons">
+        <button class="pais-btn brasil" onclick="carregarPlataforma('kick', 'kick', 'brasil', 'Kick')">
+          <img src="brasil_flag.jpg" alt="🇧🇷 Brasil" class="bandera" />
+          Brasil
+        </button>
+        <button class="pais-btn portugal" onclick="carregarPlataforma('kick', 'kick', 'portugal', 'Kick')">
+          <img src="portugal_flag.jpg" alt="🇵🇹 Portugal" class="bandera" />
+          Portugal
+        </button>
+          <button class="pais-btn inglaterra" onclick="carregarPlataforma('kick', 'kick', 'inglaterra', 'Kick')">
+            <img src="Inglaterra.jpg" alt="🇬🇧 Inglaterra" class="bandera" />
+           Inglaterra
           </button>
-          <button class="pais-btn portugal" onclick="carregarPlataforma('kick', 'kick', 'portugal', 'Kick')">
-            <img src="portugal_flag.jpg" alt="🇵🇹 Portugal" class="bandera" />
-            Portugal
-          </button>
-        </div>
       </div>
-      <div class="search-letras" id="search-letras-kick"></div>
-      <div class="search-result" id="search-result-kick"></div>
-      <div class="vtuber-grid" id="vtuber-grid-kick"></div>
     </div>
+    <div class="search-letras" id="search-letras-kick"></div>
+    <div class="search-result" id="search-result-kick"></div>
+    <div class="vtuber-grid" id="vtuber-grid-kick"></div>
   </div>
+</div>
+
 
  <div id="doar" class="tab-content">
     <div class="main-card doar-card" style="max-width: 400px; text-align: center;">
@@ -4431,6 +4451,20 @@ avatar: 'lekozito_avatar.jpeg'
   "avatar": "kaelmori_avatar.jpeg"
 },
 
+{
+  id: 313,
+  name: "Gremlin Cub",
+  pais: "inglaterra",  // ✅ PERFEITO!
+  founder: false,
+  description: "VTuber",
+  tiktok: "https://www.tiktok.com/@gremlin.cub",
+  youtube: "",
+  twitch: "https://www.twitch.tv/gremlincub",
+  kick: "",
+  avatar: "gremlincub_avatar.jpeg"
+}
+
+
 
     ];
 
@@ -4464,7 +4498,9 @@ avatar: 'lekozito_avatar.jpeg'
         grid.appendChild(card);
       });
       
-      searchResult.textContent = `${filtrados.length} VTubers ${pais === 'brasil' ? '🇧🇷 brasileiros' : '🇵🇹 portugueses'}`;
+      searchResult.textContent = `${filtrados.length} VTubers ${  pais === 'brasil' ? '🇧🇷 brasileiros' : 
+  pais === 'portugal' ? '🇵🇹 portugueses' : 
+  pais === 'inglaterra' ? '🇬🇧 ingleses' : 'encontrados' }`;
       createLetrasButtons(`search-letras-${platform}`, `vtuber-grid-${platform}`, platform);
     }
 
