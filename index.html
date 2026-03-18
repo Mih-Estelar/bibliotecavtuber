@@ -148,7 +148,8 @@
     }
     .pais-btn.brasil { border: 3px solid #00ff88; }
     .pais-btn.portugal { border: 3px solid #1e90ff; }
-    .pais-btn.inglaterra { border: 3px solid #012169; /* Azul UK */
+    .pais-btn.inglaterra { border: 3px solid #012169; }/* Azul UK */
+    .pais-btn.australia { border: 3px solid #012169;
 }
 
 
@@ -395,7 +396,8 @@
       .pais-buttons { flex-direction: column; gap: 12px; }
       .pais-btn { width: 160px; padding: 10px 16px; gap: 8px; }
       .pais-btn img.bandera { width: 28px; height: 20px; }
-    }
+       /* Azul Australia */
+ }
     .vtuber-card, .parceria-card {
       background-color: #fff;
       border-radius: 12px;
@@ -644,6 +646,10 @@
             <img src="Inglaterra.jpg" alt="🇬🇧 Inglaterra" class="bandera" />
             Inglaterra
            </button>
+           </button>
+          <button class="pais-btn australia" onclick="carregarPlataforma('TikTok', 'tiktok', 'australia', 'TikTok')">
+          <img src="australia_flag.jpeg" alt="🇦🇺 Australia" class="bandera" />
+          Australia
         </div>
       </div>
       <div class="search-letras" id="search-letras-tiktok"></div>
@@ -670,6 +676,9 @@
             <img src="Inglaterra.jpg" alt="🇬🇧 Inglaterra" class="bandera" />
            Inglaterra
           </button>
+         <button class="pais-btn australia" onclick="carregarPlataforma('YouTube', 'youtube', 'australia', 'YouTube')">
+          <img src="australia_flag.jpeg" alt="🇦🇺 Australia" class="bandera" />
+          Australia
         </div>
       </div>
       <div class="search-letras" id="search-letras-youtube"></div>
@@ -696,6 +705,10 @@
             <img src="Inglaterra.jpg" alt="🇬🇧 Inglaterra" class="bandera" />
            Inglaterra
           </button>
+          <button class="pais-btn australia" onclick="carregarPlataforma('Twitch', 'twitch', 'australia', 'Twitch')">
+          <img src="australia_flag.jpeg" alt="🇦🇺 Australia" class="bandera" />
+          Australia
+          </button>
         </div>
       </div>
       <div class="search-letras" id="search-letras-twitch"></div>
@@ -721,6 +734,10 @@
           <button class="pais-btn inglaterra" onclick="carregarPlataforma('kick', 'kick', 'inglaterra', 'Kick')">
             <img src="Inglaterra.jpg" alt="🇬🇧 Inglaterra" class="bandera" />
            Inglaterra
+        </button>
+          <button class="pais-btn australia" onclick="carregarPlataforma('kick', 'kick', 'australia', 'kick')">
+          <img src="australia_flag.jpeg" alt="🇦🇺 Australia" class="bandera" />
+           Australia
           </button>
       </div>
     </div>
@@ -4791,6 +4808,20 @@ avatar: 'lekozito_avatar.jpeg'
   avatar: 'arcantra_avatar.jpeg'
 },
 
+{
+  id: 11,
+  name: 'Rizabel72',
+  pais: 'australia',  // ✅ AUSTRALIA → mesmo filtro Inglaterra
+  founder: false,
+  description: 'VTuber Australia',
+  tiktok: 'https://www.tiktok.com/@rizabel720',
+  youtube: 'https://www.youtube.com/@Rizabel72',
+  twitch: 'https://www.twitch.tv/rizabel72',
+  kick: '',
+  avatar: 'rizabel72_avatar.jpeg'
+},
+
+
 
 
     ];
@@ -4827,7 +4858,8 @@ avatar: 'lekozito_avatar.jpeg'
       
       searchResult.textContent = `${filtrados.length} VTubers ${  pais === 'brasil' ? '🇧🇷 brasileiros' : 
   pais === 'portugal' ? '🇵🇹 portugueses' : 
-  pais === 'inglaterra' ? '🇬🇧 ingleses' : 'encontrados' }`;
+  pais === 'inglaterra' ? '🇬🇧 ingleses' : 
+  pais === 'australia' ? '🇦🇺 australianos'  : 'encontrados' }`;
       createLetrasButtons(`search-letras-${platform}`, `vtuber-grid-${platform}`, platform);
     }
 
