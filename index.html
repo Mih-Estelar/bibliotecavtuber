@@ -149,7 +149,8 @@
     .pais-btn.brasil { border: 3px solid #00ff88; }
     .pais-btn.portugal { border: 3px solid #1e90ff; }
     .pais-btn.inglaterra { border: 3px solid #012169; }/* Azul UK */
-    .pais-btn.australia { border: 3px solid #012169;
+    .pais-btn.australia { border: 3px solid #012169; }
+    .pais-btn.indonesia { border: 3px solid #012169;
 }
 
 
@@ -650,6 +651,10 @@
           <button class="pais-btn australia" onclick="carregarPlataforma('TikTok', 'tiktok', 'australia', 'TikTok')">
           <img src="australia_flag.jpeg" alt="🇦🇺 Australia" class="bandera" />
           Australia
+        <button class="pais-btn indonesia" onclick="carregarPlataforma('TikTok', 'tiktok', 'indonesia', 'TikTok')">
+       <img src="indonesia_flag.jpg" alt="🇮🇩 Indonesia" class="bandera" />
+       Indonésia
+        </button>
         </div>
       </div>
       <div class="search-letras" id="search-letras-tiktok"></div>
@@ -679,6 +684,11 @@
          <button class="pais-btn australia" onclick="carregarPlataforma('YouTube', 'youtube', 'australia', 'YouTube')">
           <img src="australia_flag.jpeg" alt="🇦🇺 Australia" class="bandera" />
           Australia
+        </button>
+        <button class="pais-btn indonesia" onclick="carregarPlataforma('YouTube', 'youtube', 'indonesia', 'YouTube')">
+        <img src="indonesia_flag.jpg" alt="🇮🇩 Indonesia" class="bandera" />
+       Indonésia
+      </button>
         </div>
       </div>
       <div class="search-letras" id="search-letras-youtube"></div>
@@ -709,6 +719,11 @@
           <img src="australia_flag.jpeg" alt="🇦🇺 Australia" class="bandera" />
           Australia
           </button>
+         <button class="pais-btn indonesia" onclick="carregarPlataforma('Twitch', 'twitch', 'indonesia', 'Twitch')">
+        <img src="indonesia_flag.jpg" alt="🇮🇩 Indonesia" class="bandera" />
+       Indonésia
+        </button>
+        </div>
         </div>
       </div>
       <div class="search-letras" id="search-letras-twitch"></div>
@@ -738,6 +753,10 @@
           <button class="pais-btn australia" onclick="carregarPlataforma('kick', 'kick', 'australia', 'kick')">
           <img src="australia_flag.jpeg" alt="🇦🇺 Australia" class="bandera" />
            Australia
+             </button>
+         <button class="pais-btn indonesia" onclick="carregarPlataforma('kick', 'kick', 'indonesia', 'kick')">
+        <img src="indonesia_flag.jpg" alt="🇮🇩 Indonesia" class="bandera" />
+       Indonésia
           </button>
       </div>
     </div>
@@ -4925,6 +4944,60 @@ avatar: 'lekozito_avatar.jpeg'
   avatar: 'hadera_avatar.jpg'
 },
 
+{
+  id: 20,
+  name: 'Vaeril Noctaryn',
+  pais: 'indonesia',
+  founder: false,
+  description: 'VTuber | Character Design: baizzuuu | Live2D: koyomiwmiw_',
+  tiktok: 'https://www.tiktok.com/@vaerilnoctaryn',
+  youtube: 'https://www.youtube.com/@VaerilNoctaryn',
+  twitch: '',
+  kick: '',
+  avatar: 'vaerilnoctaryn_avatar.jpg'
+},
+
+{
+  id: 22,
+  name: 'Xryo',
+  pais: 'brasil',
+  founder: false,
+  description: ' VTuber PNG',
+  tiktok: 'https://www.tiktok.com/@xryo0_o',
+  youtube: 'https://youtube.com/@xryo_0',
+  twitch: '',
+  kick: '',
+  instagram: 'https://www.instagram.com/xryo0_o',
+  twitter: 'https://x.com/XRyoTrhayker',
+  avatar: 'xryo_avatar.jpg'
+},
+
+{
+  id: 23,
+  name: 'Snap Shiruba',
+  pais: 'brasil',
+  founder: false,
+  description: 'VTuber',
+  tiktok: 'https://www.tiktok.com/@snapshiruba',
+  youtube: 'https://www.youtube.com/@SnapShiruba',
+  twitch: 'https://www.twitch.tv/snap_shiruba',
+  kick: '',
+  avatar: 'snapshiruba_avatar.jpg'
+},
+
+{
+  id: 21,
+  name: 'Alysson KSC',
+  pais: 'brasil',
+  founder: false,
+  description: 'VTuber',
+  tiktok: 'https://www.tiktok.com/@alyssonksc',
+  youtube: 'https://www.youtube.com/@AlyssonKSC',
+  twitch: 'https://www.twitch.tv/alyssonksc',
+  kick: '',
+  avatar: 'alyssonksc_avatar.jpg'
+},
+
 
     ];
 
@@ -4959,9 +5032,11 @@ avatar: 'lekozito_avatar.jpeg'
       });
       
       searchResult.textContent = `${filtrados.length} VTubers ${  pais === 'brasil' ? '🇧🇷 brasileiros' : 
-  pais === 'portugal' ? '🇵🇹 portugueses' : 
-  pais === 'inglaterra' ? '🇬🇧 ingleses' : 
-  pais === 'australia' ? '🇦🇺 australianos'  : 'encontrados' }`;
+pais === 'portugal' ? '🇵🇹 portugueses' : 
+pais === 'inglaterra' ? '🇬🇧 ingleses' : 
+pais === 'australia' ? '🇦🇺 australianos' :
+pais === 'indonesia' ? '🇮🇩 indonésios' : 'encontrados' }`;
+
       createLetrasButtons(`search-letras-${platform}`, `vtuber-grid-${platform}`, platform);
     }
 
