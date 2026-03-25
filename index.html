@@ -655,6 +655,10 @@
        <img src="indonesia_flag.jpg" alt="🇮🇩 Indonesia" class="bandera" />
        Indonésia
         </button>
+        <button class="pais-btn franca" onclick="carregarPlataforma('TikTok', 'tiktok', 'franca', 'TikTok França')">
+       <img src="franca_flag.jpg" alt="🇫🇷 França" class="bandera" />
+       França
+      </button>
         </div>
       </div>
       <div class="search-letras" id="search-letras-tiktok"></div>
@@ -689,6 +693,10 @@
         <img src="indonesia_flag.jpg" alt="🇮🇩 Indonesia" class="bandera" />
        Indonésia
       </button>
+      <button class="pais-btn franca" onclick="carregarPlataforma('YouTube', 'youtube', 'franca', 'YouTube França')">
+      <img src="franca_flag.jpg" alt="🇫🇷 França" class="bandera" />
+     França
+    </button>
         </div>
       </div>
       <div class="search-letras" id="search-letras-youtube"></div>
@@ -701,7 +709,7 @@
   <div id="Twitch" class="tab-content">
     <div class="search-container">
       <div class="pais-selector">
-        <h3>🇧🇷🇵🇹 Escolha seu País</h3>
+        <h3>Escolha seu País</h3>
         <div class="pais-buttons">
           <button class="pais-btn brasil" onclick="carregarPlataforma('Twitch', 'twitch', 'brasil', 'Twitch')">
             <img src="brasil_flag.jpg" alt="🇧🇷 Brasil" class="bandera" />
@@ -723,6 +731,10 @@
         <img src="indonesia_flag.jpg" alt="🇮🇩 Indonesia" class="bandera" />
        Indonésia
         </button>
+        <button class="pais-btn franca" onclick="carregarPlataforma('Twitch', 'twitch', 'franca', 'Twitch França')">
+       <img src="franca_flag.jpg" alt="🇫🇷 França" class="bandera" />
+       França
+      </button>
         </div>
         </div>
       </div>
@@ -736,7 +748,7 @@
 <div id="kick" class="tab-content">
   <div class="search-container">
     <div class="pais-selector">
-      <h3>🇧🇷🇵🇹🇬🇧 Escolha seu País</h3>
+      <h3>Escolha seu País</h3>
       <div class="pais-buttons">
         <button class="pais-btn brasil" onclick="carregarPlataforma('kick', 'kick', 'brasil', 'Kick')">
           <img src="brasil_flag.jpg" alt="🇧🇷 Brasil" class="bandera" />
@@ -757,7 +769,11 @@
          <button class="pais-btn indonesia" onclick="carregarPlataforma('kick', 'kick', 'indonesia', 'kick')">
         <img src="indonesia_flag.jpg" alt="🇮🇩 Indonesia" class="bandera" />
        Indonésia
-          </button>
+        </button>
+        <button class="pais-btn franca" onclick="carregarPlataforma('Kick', 'kick', 'franca', 'Kick França')">
+       <img src="franca_flag.jpg" alt="🇫🇷 França" class="bandera" />
+       França
+      </button>
       </div>
     </div>
     <div class="search-letras" id="search-letras-kick"></div>
@@ -5131,7 +5147,7 @@ avatar: 'lekozito_avatar.jpeg'
 
 {
   id: 35,
-  name: 'AP00L',
+  name: 'Jabami',
   pais: 'portugal',
   founder: false,
   description: 'VTuber',
@@ -5142,6 +5158,18 @@ avatar: 'lekozito_avatar.jpeg'
   avatar: 'ap00l_avatar.jpeg'
 },
 
+{
+  id: 36,
+  name: 'Acttrax',
+  pais: 'franca',
+  founder: false,
+  description: 'VTuber',
+  tiktok: 'https://www.tiktok.com/@acttrax',
+  youtube: 'https://youtube.com/@acttrax',
+  twitch: 'https://www.twitch.tv/acttrax',
+  kick: '',
+  avatar: 'acttrax_avatar.jpeg'
+},
 
     ];
 
@@ -5179,7 +5207,9 @@ avatar: 'lekozito_avatar.jpeg'
 pais === 'portugal' ? '🇵🇹 portugueses' : 
 pais === 'inglaterra' ? '🇬🇧 ingleses' : 
 pais === 'australia' ? '🇦🇺 australianos' :
-pais === 'indonesia' ? '🇮🇩 indonésios' : 'encontrados' }`;
+pais === 'indonesia' ? '🇮🇩 indonésios' :
+pais === 'franca' ? '🇫🇷 franceses' : 'encontrados' }`;
+
 
       createLetrasButtons(`search-letras-${platform}`, `vtuber-grid-${platform}`, platform);
     }
