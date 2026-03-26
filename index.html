@@ -150,9 +150,8 @@
     .pais-btn.portugal { border: 3px solid #1e90ff; }
     .pais-btn.inglaterra { border: 3px solid #012169; }/* Azul UK */
     .pais-btn.australia { border: 3px solid #012169; }
-    .pais-btn.indonesia { border: 3px solid #012169;
-}
-
+    .pais-btn.indonesia { border: 3px solid #012169;}
+    .pais-btn.lituania { border: 3px solid #012169;}
 
     /* Search */
     .search-container {
@@ -659,6 +658,10 @@
        <img src="franca_flag.jpg" alt="🇫🇷 França" class="bandera" />
        França
       </button>
+      <button class="pais-btn lituania" onclick="carregarPlataforma('TikTok', 'tiktok', 'lituania', 'TikTok')">
+     <img src="lituania_flag.jpeg" alt="🇱🇹 Lituânia" class="bandera" />
+     Lituânia
+     </button>
         </div>
       </div>
       <div class="search-letras" id="search-letras-tiktok"></div>
@@ -696,6 +699,10 @@
       <button class="pais-btn franca" onclick="carregarPlataforma('YouTube', 'youtube', 'franca', 'YouTube')">
       <img src="franca_flag.jpg" alt="🇫🇷 França" class="bandera" />
      França
+    </button>
+    <button class="pais-btn lituania" onclick="carregarPlataforma('YouTube', 'youtube', 'lituania', 'YouTube')">
+    <img src="lituania_flag.jpeg" alt="🇱🇹 Lituânia" class="bandera" />
+    Lituânia
     </button>
         </div>
       </div>
@@ -735,6 +742,10 @@
        <img src="franca_flag.jpg" alt="🇫🇷 França" class="bandera" />
        França
       </button>
+      <button class="pais-btn lituania" onclick="carregarPlataforma('Twitch', 'twitch', 'lituania', 'Twitch')">
+     <img src="lituania_flag.jpeg" alt="🇱🇹 Lituânia" class="bandera" />
+     Lituânia
+    </button>
         </div>
         </div>
       </div>
@@ -774,6 +785,10 @@
        <img src="franca_flag.jpg" alt="🇫🇷 França" class="bandera" />
        França
       </button>
+      <button class="pais-btn lituania" onclick="carregarPlataforma('kick', 'kick', 'lituania', 'kick')">
+     <img src="lituania_flag.jpeg" alt="🇱🇹 Lituânia" class="bandera" />
+     Lituânia
+    </button>
       </div>
     </div>
     <div class="search-letras" id="search-letras-kick"></div>
@@ -5171,6 +5186,34 @@ avatar: 'lekozito_avatar.jpeg'
   avatar: 'acttrax_avatar.jpeg'
 },
 
+{
+  id: 37,
+  name: 'Aprendiz',
+  pais: 'brasil',
+  founder: false,
+  description: 'VTuber',
+  tiktok: 'https://www.tiktok.com/@aprendiz_vtuber',
+  youtube: 'https://www.youtube.com/@APRENDIZO57',
+  twitch: '',
+  kick: '',
+  avatar: 'aprendiz_avatar.jpeg'
+},
+
+{
+  id: 38,
+  name: 'Sato',
+  pais: 'lituania',
+  founder: false,
+  description: 'VTuber',
+  tiktok: 'https://www.tiktok.com/@satovgen',
+  youtube: 'https://youtube.com/@sato-707',
+  vgen: 'https://vgen.co/Sato707',
+  twitch: '',
+  kick: '',
+  avatar: 'sato_avatar.jpeg'
+},
+
+
     ];
 
     function carregarPlataforma(tabName, platform, pais, platformName) {
@@ -5203,12 +5246,14 @@ avatar: 'lekozito_avatar.jpeg'
         grid.appendChild(card);
       });
       
-      searchResult.textContent = `${filtrados.length} VTubers ${  pais === 'brasil' ? '🇧🇷 brasileiros' : 
+      searchResult.textContent = `${filtrados.length} VTubers ${ pais === 'brasil' ? '🇧🇷 brasileiros' : 
 pais === 'portugal' ? '🇵🇹 portugueses' : 
 pais === 'inglaterra' ? '🇬🇧 ingleses' : 
 pais === 'australia' ? '🇦🇺 australianos' :
 pais === 'indonesia' ? '🇮🇩 indonésios' :
-pais === 'franca' ? '🇫🇷 franceses' : 'encontrados' }`;
+pais === 'franca' ? '🇫🇷 franceses' :
+pais === 'lituania' ? '🇱🇹 lituanos' : 'encontrados' }`;
+
 
 
       createLetrasButtons(`search-letras-${platform}`, `vtuber-grid-${platform}`, platform);
