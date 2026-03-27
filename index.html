@@ -152,7 +152,7 @@
     .pais-btn.australia { border: 3px solid #012169; }
     .pais-btn.indonesia { border: 3px solid #012169;}
     .pais-btn.lituania { border: 3px solid #012169;}
-
+    .pais-btn.usa { border: 3px solid #DC143C; } /* Vermelho EUA 🇺🇸 */
     /* Search */
     .search-container {
       background: #fff;
@@ -662,6 +662,10 @@
      <img src="lituania_flag.jpeg" alt="🇱🇹 Lituânia" class="bandera" />
      Lituânia
      </button>
+     <button class="pais-btn usa" onclick="carregarPlataforma('TikTok', 'tiktok', 'usa', 'TikTok')">
+    <img src="usa_flag.jpeg" alt="🇺🇸 USA" class="bandera" />
+    USA
+   </button>
         </div>
       </div>
       <div class="search-letras" id="search-letras-tiktok"></div>
@@ -704,6 +708,10 @@
     <img src="lituania_flag.jpeg" alt="🇱🇹 Lituânia" class="bandera" />
     Lituânia
     </button>
+     <button class="pais-btn usa" onclick="carregarPlataforma('YouTube', 'youtube', 'usa', 'YouTube')">
+    <img src="usa_flag.jpeg" alt="🇺🇸 USA" class="bandera" />
+    USA
+   </button>
         </div>
       </div>
       <div class="search-letras" id="search-letras-youtube"></div>
@@ -746,6 +754,10 @@
      <img src="lituania_flag.jpeg" alt="🇱🇹 Lituânia" class="bandera" />
      Lituânia
     </button>
+     <button class="pais-btn usa" onclick="carregarPlataforma('Twitch', 'twitch', 'usa', 'twitch')">
+    <img src="usa_flag.jpeg" alt="🇺🇸 USA" class="bandera" />
+    USA
+   </button>
         </div>
         </div>
       </div>
@@ -789,6 +801,10 @@
      <img src="lituania_flag.jpeg" alt="🇱🇹 Lituânia" class="bandera" />
      Lituânia
     </button>
+       <button class="pais-btn usa" onclick="carregarPlataforma('kick', 'kick', 'usa', 'kick')">
+    <img src="usa_flag.jpeg" alt="🇺🇸 USA" class="bandera" />
+    USA
+   </button>
       </div>
     </div>
     <div class="search-letras" id="search-letras-kick"></div>
@@ -5213,6 +5229,33 @@ avatar: 'lekozito_avatar.jpeg'
   avatar: 'sato_avatar.jpeg'
 },
 
+{
+  id: 39,
+  name: 'HeyAomi',
+  pais: 'brasil',
+  founder: false,
+  description: 'VTuber',
+  tiktok: 'https://www.tiktok.com/@heyaomi',
+  youtube: 'https://www.youtube.com/@HeyAomi',
+  twitch: 'https://www.twitch.tv/heyaomi',
+  kick: '',
+  avatar: 'heyaomi_avatar.jpeg'
+},
+
+{
+  id: 40,
+  name: 'Brandr Ulf',
+  pais: 'usa',
+  founder: false,
+  description: 'PNG VTuber',
+  tiktok: 'https://www.tiktok.com/@brandr.ulf',
+  youtube: 'https://www.youtube.com/@brandrvanulf',
+  twitter: 'https://twitter.com/brandrvonulf',
+  bluesky: 'https://bsky.app/profile/brandrulf.bsky.social',
+  twitch: '',
+  kick: '',
+  avatar: 'brandrulf_avatar.jpeg'
+},
 
     ];
 
@@ -5252,9 +5295,8 @@ pais === 'inglaterra' ? '🇬🇧 ingleses' :
 pais === 'australia' ? '🇦🇺 australianos' :
 pais === 'indonesia' ? '🇮🇩 indonésios' :
 pais === 'franca' ? '🇫🇷 franceses' :
-pais === 'lituania' ? '🇱🇹 lituanos' : 'encontrados' }`;
-
-
+pais === 'lituania' ? '🇱🇹 lituanos' :
+pais === 'usa' ? '🇺🇸 americanos' : 'encontrados' }`;
 
       createLetrasButtons(`search-letras-${platform}`, `vtuber-grid-${platform}`, platform);
     }
