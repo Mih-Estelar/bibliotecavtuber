@@ -5797,12 +5797,13 @@ avatar: 'lekozito_avatar.jpeg'
   pais: 'brasil',
   founder: false,
   description: 'VTuber',
+  bio: 'Olá meu nome é Lisanee dona de um projeto indie chamado Happy Metal Story. Tenho aproximadamente 20 anos de idade e pretendo expandir a minha história e música, através do meu projeto, a happy metal story. Amo muito cada pessoa do projeto e também todos que me acompanham💖 essa gente mora em meu coraçãozinho. e se você me acompanhar também ficará em um lugar especial no meu coração♥️\n\nSim eu sou uma garota trans',
   tiktok: 'https://www.tiktok.com/@cavaleirorichard',
   youtube: 'https://youtube.com/@happymetaloficial?si=0N67ws5tfdsyjKIo',
   twitch: '',
   kick: '',
   avatar: 'cavaleiro_richard_avatar.jpg'
-},
+}
 
     ];
 
@@ -5822,20 +5823,20 @@ avatar: 'lekozito_avatar.jpeg'
       grid.innerHTML = '';
       const filtrados = vTubers.filter(v => v.pais === pais && v[platform]);
       
-      filtrados.forEach(vtuber => {
-        const card = document.createElement('div');
-        card.className = 'vtuber-card';
-        card.innerHTML = `
-          <img src="${vtuber.avatar}" alt="${vtuber.name}" class="vtuber-avatar" />
-          <div class="vtuber-name">${vtuber.name}${vtuber.founder ? ' ⭐ Fundador' : ''}</div>
-          <div class="vtuber-description">${vtuber.description}</div>
-          <div class="social-links">
-            <a href="${vtuber[platform]}" target="_blank" rel="noopener noreferrer">${platformName}</a>
-          </div>
-        `;
-        grid.appendChild(card);
-      });
-      
+filtrados.forEach(vtuber => {
+  const card = document.createElement('div');
+  card.className = 'vtuber-card';
+  card.innerHTML = `
+    <img src="${vtuber.avatar}" alt="${vtuber.name}" class="vtuber-avatar" />
+    <div class="vtuber-name">${vtuber.name}${vtuber.founder ? ' ⭐ Fundador' : ''}</div>
+    <div class="vtuber-description">${vtuber.description}</div>
+    <div class="vtuber-bio">${vtuber.bio || ''}</div>
+    <div class="social-links">
+      <a href="${vtuber[platform]}" target="_blank" rel="noopener noreferrer">${platformName}</a>
+    </div>
+  `;
+  grid.appendChild(card);
+});
       searchResult.textContent = `${filtrados.length} VTubers ${ pais === 'brasil' ? '🇧🇷 brasileiros' : 
 pais === 'portugal' ? '🇵🇹 portugueses' : 
 pais === 'inglaterra' ? '🇬🇧 ingleses' : 
